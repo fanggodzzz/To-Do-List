@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planner Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">Monthly planner</p>
+          <h1>Task Calendar</h1>
+        </div>
+
+        <div class="composer" aria-label="Add task">
+          <input
+            id="addDescription"
+            type="text"
+            placeholder="Task description"
+          />
+          <input id="addDueDate" type="date" />
+          <button class="primary-btn" onclick="addTodo()">Add</button>
+        </div>
+      </header>
+
+      <section class="calendar-card">
+        <div class="calendar-toolbar">
+          <button class="nav-btn" id="prevMonthBtn" type="button">
+            &#9664;
+          </button>
+          <h2 id="monthLabel">Month</h2>
+          <button class="nav-btn" id="nextMonthBtn" type="button">
+            &#9654;
+          </button>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid"></div>
+        <p id="apiStatus" class="api-status"></p>
+      </section>
+    </main>
+
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+    <aside id="detailDrawer" class="detail-drawer" aria-label="Task details">
+      <div class="drawer-header">
+        <h3>Task Details</h3>
+        <button class="icon-btn" id="closeDrawerBtn" type="button">X</button>
+      </div>
+
+      <div class="drawer-form">
+        <label for="detailDescription">Description</label>
+        <textarea id="detailDescription" rows="4"></textarea>
+
+        <label for="detailDueDate">Due date</label>
+        <input id="detailDueDate" type="date" />
+
+        <label class="check-row" for="detailCompleted">
+          <input id="detailCompleted" type="checkbox" />
+          Completed
+        </label>
+      </div>
+
+      <div class="drawer-actions">
+        <button class="ghost-btn" id="deleteTaskBtn" type="button">
+          Delete
+        </button>
+        <button class="primary-btn" id="saveTaskBtn" type="button">
+          Save changes
+        </button>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
