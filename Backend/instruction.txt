@@ -1,0 +1,4 @@
+Kill the program:
+
+netstat -ano | findstr :8080
+taskkill /PID 12345 /F
