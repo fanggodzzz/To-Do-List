@@ -1,6 +1,8 @@
 package com.tp.todolist.service;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +24,13 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
+    public List<ActivitiesEntity> getByMonth(Long year, Long month) {
+        LocalDate start = LocalDate.of(year.intValue(), month.intValue(), 1);
+        LocalDate end = start.plusMonths(1).minusDays(1);
+        return todoRepository.findByDueDateBetween(start, end);
+    }
+
+    // Todo operations
     public ActivitiesEntity createTask(LocalDate dueDate, String description, Boolean completed, Long tagId) {
         TagEntity tag = resolveTag(tagId);
 
@@ -66,6 +75,7 @@ public class TodoService {
         todoRepository.deleteById(id);
     }
 
+    // Tag endpoints
     public List<TagEntity> getAllTags() {
         return tagRepository.findAll();
     }
@@ -112,5 +122,20 @@ public class TodoService {
 
         return tagRepository.findById(tagId)
                 .orElseThrow(() -> new RuntimeException("Tag not found"));
+    }
+
+    // Upcoming activities
+    public List<ActivitiesEntity> getUpcomingActivities() {
+        LocalDate today = LocalDate.now();
+        LocalDate nextWeek = today
+                .plusWeeks(1)
+                .with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+        return todoRepository.findUpcoming(today, nextWeek);
+    }
+
+    // Overdue activities
+    public List<ActivitiesEntity> getOverdueActivities() {
+        LocalDate today = LocalDate.now();
+        return todoRepository.findOverdue(today);
     }
 }
