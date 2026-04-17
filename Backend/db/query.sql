@@ -1,0 +1,10 @@
+ALTER TABLE activities
+ADD CONSTRAINT fk_tag
+FOREIGN KEY (ac_tag_id)
+REFERENCES tags(tag_id)
+ON DELETE SET NULL;
+
+ALTER TABLE activities
+MODIFY ac_tag_id BIGINT NULL;
+
+SHOW CREATE TABLE activities
