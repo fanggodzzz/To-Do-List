@@ -13,35 +13,93 @@
           <p class="eyebrow">Monthly planner</p>
           <h1>Task Calendar</h1>
         </div>
-
-        <div class="composer" aria-label="Add task">
-          <input
-            id="addDescription"
-            type="text"
-            placeholder="Task description"
-          />
-          <input id="addDueDate" type="date" />
-          <button class="primary-btn" onclick="addTodo()">Add</button>
-        </div>
       </header>
 
-      <section class="calendar-card">
-        <div class="calendar-toolbar">
-          <button class="nav-btn" id="prevMonthBtn" type="button">
-            &#9664;
-          </button>
-          <h2 id="monthLabel">Month</h2>
-          <button class="nav-btn" id="nextMonthBtn" type="button">
-            &#9654;
-          </button>
-        </div>
+      <div class="planner-layout">
+        <section class="calendar-card">
+          <div class="calendar-tags">
+            <div class="calendar-tags-header">
+              <h3>Tags</h3>
+            </div>
+            <div id="tagLabelList" class="tag-label-list"></div>
+            <p class="tag-helper">Click a tag label to edit or delete it.</p>
+          </div>
 
-        <div id="calendarGrid" class="calendar-grid"></div>
-        <p id="apiStatus" class="api-status"></p>
-      </section>
+          <div class="calendar-toolbar">
+            <button class="nav-btn" id="prevMonthBtn" type="button">
+              &#9664;
+            </button>
+            <h2 id="monthLabel">Month</h2>
+            <button class="nav-btn" id="nextMonthBtn" type="button">
+              &#9654;
+            </button>
+          </div>
+
+          <div id="calendarGrid" class="calendar-grid"></div>
+          <p id="apiStatus" class="api-status"></p>
+        </section>
+
+        <aside class="summary-rail" aria-label="Task summaries">
+          <button
+            id="upcomingSummaryCard"
+            class="summary-card summary-card--upcoming"
+            type="button"
+          >
+            <div class="summary-card__head">
+              <p class="summary-card__kicker">Upcoming</p>
+              <h3>Tasks</h3>
+            </div>
+            <div id="upcomingPreviewList" class="summary-preview-list"></div>
+          </button>
+
+          <button
+            id="overdueSummaryCard"
+            class="summary-card summary-card--overdue"
+            type="button"
+          >
+            <div class="summary-card__head">
+              <p class="summary-card__kicker">Overdue</p>
+              <h3>Tasks</h3>
+            </div>
+            <div id="overduePreviewList" class="summary-preview-list"></div>
+          </button>
+        </aside>
+      </div>
     </main>
 
     <div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+    <aside id="listDrawer" class="list-drawer" aria-label="Task list">
+      <div class="drawer-header">
+        <div>
+          <p id="listDrawerKicker" class="drawer-kicker">Date</p>
+          <h3 id="listDrawerTitle">Task list</h3>
+        </div>
+        <button class="icon-btn" id="toggleDrawerAddBtn" type="button">
+          +
+        </button>
+        <button class="icon-btn" id="closeListDrawerBtn" type="button">
+          X
+        </button>
+      </div>
+
+      <p id="listDrawerMeta" class="drawer-meta"></p>
+      <div id="listDrawerItems" class="list-drawer-items"></div>
+
+      <section id="drawerAddPanel" class="drawer-add-panel">
+        <label for="addTag">Tag list for chosen</label>
+        <select id="addTag"></select>
+
+        <label for="addDescription">Description:</label>
+        <input id="addDescription" type="text" placeholder="Task description" />
+
+        <input id="addDueDate" type="hidden" />
+
+        <button class="primary-btn" id="confirmDrawerAddBtn" type="button">
+          Add task
+        </button>
+      </section>
+    </aside>
 
     <aside id="detailDrawer" class="detail-drawer" aria-label="Task details">
       <div class="drawer-header">
@@ -52,6 +110,9 @@
       <div class="drawer-form">
         <label for="detailDescription">Description</label>
         <textarea id="detailDescription" rows="4"></textarea>
+
+        <label for="detailTag">Tag</label>
+        <select id="detailTag"></select>
 
         <label for="detailDueDate">Due date</label>
         <input id="detailDueDate" type="date" />
@@ -68,6 +129,50 @@
         </button>
         <button class="primary-btn" id="saveTaskBtn" type="button">
           Save changes
+        </button>
+      </div>
+    </aside>
+
+    <aside id="tagDrawer" class="detail-drawer" aria-label="Tag details">
+      <div class="drawer-header">
+        <h3>Tag Details</h3>
+        <button class="icon-btn" id="closeTagDrawerBtn" type="button">X</button>
+      </div>
+
+      <div class="drawer-form">
+        <label for="tagEditName">Tag name</label>
+        <input id="tagEditName" type="text" />
+      </div>
+
+      <div class="drawer-actions">
+        <button class="ghost-btn" id="deleteTagBtn" type="button">
+          Delete Tag
+        </button>
+        <button class="primary-btn" id="saveTagBtn" type="button">
+          Save Tag
+        </button>
+      </div>
+    </aside>
+
+    <aside id="addTagDrawer" class="detail-drawer" aria-label="Add tag details">
+      <div class="drawer-header">
+        <h3>Add Tag</h3>
+        <button class="icon-btn" id="closeAddTagDrawerBtn" type="button">
+          X
+        </button>
+      </div>
+
+      <div class="drawer-form">
+        <label for="newTagDrawerName">Tag name</label>
+        <input id="newTagDrawerName" type="text" />
+      </div>
+
+      <div class="drawer-actions">
+        <button class="ghost-btn" id="cancelAddTagBtn" type="button">
+          Cancel
+        </button>
+        <button class="primary-btn" id="confirmAddTagBtn" type="button">
+          Add Tag
         </button>
       </div>
     </aside>

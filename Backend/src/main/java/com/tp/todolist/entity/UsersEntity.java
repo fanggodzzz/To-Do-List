@@ -21,16 +21,22 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tags")
-public class TagEntity {
+@Table(name = "users")
+public class UsersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tag_id;
+    private Long user_id;
 
     @Column(nullable = false, unique = true)
-    private String tag_name;
+    private String user_name;
 
+    @Column(nullable = false, unique = true)
+    private String user_email;
+
+    @Column(nullable = false)
+    private String user_password;
+
+    @OneToMany(mappedBy = "ac_user_id")
     @JsonIgnore
-    @OneToMany(mappedBy = "ac_tag_id")
     private List<ActivitiesEntity> activities;
 }

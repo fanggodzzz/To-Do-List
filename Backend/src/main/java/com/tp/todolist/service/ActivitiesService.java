@@ -8,17 +8,17 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.tp.todolist.entity.ActivitiesEntity;
-import com.tp.todolist.entity.TagEntity;
-import com.tp.todolist.repository.TagRepository;
-import com.tp.todolist.repository.TodoRepository;
+import com.tp.todolist.entity.TagsEntity;
+import com.tp.todolist.repository.TagsRepository;
+import com.tp.todolist.repository.ActivitiesRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class TodoService {
-    private final TodoRepository todoRepository;
-    private final TagRepository tagRepository;
+public class ActivitiesService {
+    private final ActivitiesRepository todoRepository;
+    private final TagsRepository tagRepository;
 
     public List<ActivitiesEntity> getAll() {
         return todoRepository.findAll();
@@ -32,7 +32,7 @@ public class TodoService {
 
     // Todo operations
     public ActivitiesEntity createTask(LocalDate dueDate, String description, Boolean completed, Long tagId) {
-        TagEntity tag = resolveTag(tagId);
+        TagsEntity tag = resolveTag(tagId);
 
         ActivitiesEntity todo = ActivitiesEntity.builder()
                 .ac_due_date(dueDate)
@@ -47,7 +47,7 @@ public class TodoService {
         ActivitiesEntity todo = todoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo not found"));
 
-        TagEntity tag = resolveTag(tagId);
+        TagsEntity tag = resolveTag(tagId);
 
         if (description == null || description.trim().isEmpty()) {
             throw new RuntimeException("Description is required");
@@ -76,33 +76,33 @@ public class TodoService {
     }
 
     // Tag endpoints
-    public List<TagEntity> getAllTags() {
+    public List<TagsEntity> getAllTags() {
         return tagRepository.findAll();
     }
 
-    public TagEntity getTagById(Long id) {
+    public TagsEntity getTagById(Long id) {
         return tagRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tag not found"));
     }
 
-    public TagEntity addTag(String name) {
+    public TagsEntity addTag(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new RuntimeException("Tag name is required");
         }
 
-        TagEntity tag = TagEntity.builder()
+        TagsEntity tag = TagsEntity.builder()
                 .tag_name(name.trim())
                 .build();
 
         return tagRepository.save(tag);
     }
 
-    public TagEntity updateTag(Long id, String name) {
+    public TagsEntity updateTag(Long id, String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new RuntimeException("Tag name is required");
         }
 
-        TagEntity tag = tagRepository.findById(id)
+        TagsEntity tag = tagRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tag not found"));
         tag.setTag_name(name.trim());
         return tagRepository.save(tag);
@@ -115,7 +115,7 @@ public class TodoService {
         tagRepository.deleteById(id);
     }
 
-    private TagEntity resolveTag(Long tagId) {
+    private TagsEntity resolveTag(Long tagId) {
         if (tagId == null) {
             throw new RuntimeException("Tag is required");
         }

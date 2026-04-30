@@ -40,5 +40,10 @@ public class ActivitiesEntity {
     @ManyToOne
     @JoinColumn(name = "ac_tag_id", referencedColumnName = "tag_id", nullable = true)
     @OnDelete(action = OnDeleteAction.SET_NULL)
-    private TagEntity ac_tag_id;
+    private TagsEntity ac_tag_id;
+
+    @ManyToOne
+    @JoinColumn(name = "ac_user_id", referencedColumnName = "user_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private UsersEntity ac_user_id;
 }

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tp.todolist.entity.ActivitiesEntity;
-import com.tp.todolist.entity.TagEntity;
-import com.tp.todolist.service.TodoService;
+import com.tp.todolist.entity.TagsEntity;
+import com.tp.todolist.service.ActivitiesService;
 
 @RestController
-@RequestMapping("/api/todo")
+@RequestMapping("/todo")
 public class TodoController {
-    private final TodoService todoService;
+    private final ActivitiesService todoService;
 
-    public TodoController(TodoService todoService) {
+    public TodoController(ActivitiesService todoService) {
         this.todoService = todoService;
     }
 
@@ -68,20 +68,20 @@ public class TodoController {
 
     // Tag endpoints
     @GetMapping("/tags")
-    public List<TagEntity> getAllTags() {
+    public List<TagsEntity> getAllTags() {
         return todoService.getAllTags();
     }
 
     @GetMapping("/tags/{id}")
-    public ResponseEntity<TagEntity> getTagById(
+    public ResponseEntity<TagsEntity> getTagById(
             @PathVariable Long id) {
         return ResponseEntity.ok(todoService.getTagById(id));
     }
 
     @PostMapping("/tags/add")
-    public ResponseEntity<TagEntity> addTag(
-            @RequestBody TagEntity tag) {
-        TagEntity createdTag = todoService.addTag(tag.getTag_name());
+    public ResponseEntity<TagsEntity> addTag(
+            @RequestBody TagsEntity tag) {
+        TagsEntity createdTag = todoService.addTag(tag.getTag_name());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTag);
     }
 
@@ -93,9 +93,9 @@ public class TodoController {
     }
 
     @PatchMapping("/tags/update/{id}")
-    public ResponseEntity<TagEntity> updateTag(
+    public ResponseEntity<TagsEntity> updateTag(
             @PathVariable Long id,
-            @RequestBody TagEntity tag) {
+            @RequestBody TagsEntity tag) {
         return ResponseEntity.ok(todoService.updateTag(id, tag.getTag_name()));
     }
 

@@ -7,4 +7,4 @@ ON DELETE SET NULL;
 ALTER TABLE activities
 MODIFY ac_tag_id BIGINT NULL;
 
-SHOW CREATE TABLE activities
+SHOW CREATE TABLE activities;

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.tp.todolist.entity.ActivitiesEntity;
 
 @Repository
-public interface TodoRepository extends JpaRepository<ActivitiesEntity, Long> {
+public interface ActivitiesRepository extends JpaRepository<ActivitiesEntity, Long> {
 
     @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date BETWEEN :start AND :end")
     List<ActivitiesEntity> findByDueDateBetween(@Param("start") LocalDate start, @Param("end") LocalDate end);
