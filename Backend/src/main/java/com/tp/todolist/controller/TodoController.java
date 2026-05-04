@@ -18,14 +18,13 @@ import com.tp.todolist.entity.ActivitiesEntity;
 import com.tp.todolist.entity.TagsEntity;
 import com.tp.todolist.service.ActivitiesService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/todo")
+@RequestMapping("/api/todos")
 public class TodoController {
     private final ActivitiesService todoService;
-
-    public TodoController(ActivitiesService todoService) {
-        this.todoService = todoService;
-    }
 
     // Todo endpoints
     @GetMapping("/")

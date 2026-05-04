@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.tp.todolist.entity.UsersEntity;
 import com.tp.todolist.service.UserService;
 import com.tp.todolist.security.JwtUtil;
+import com.tp.todolist.dto.AuthRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,7 +17,7 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
-    public void register(UsersEntity request) {
+    public void register(AuthRequest request) {
         String username = request.getUser_name();
         String password = request.getUser_password();
         String email = request.getUser_email();
@@ -46,7 +47,7 @@ public class AuthService {
         userService.createUser(newUser);
     }
 
-    public String login(UsersEntity request) {
+    public String login(AuthRequest request) {
         String username = request.getUser_name();
         String password = request.getUser_password();
 
@@ -56,7 +57,7 @@ public class AuthService {
             throw new RuntimeException("Invalid username or password");
         }
 
-        return jwtUtil.generateToken(user.getUser_id());
+        return jwtUtil.generateToken(user.getUser_id(), user.getUser_name(), user.getUser_email());
     }
 
 }
