@@ -1,13 +1,11 @@
 spring:
-  # datasource:
-  #   url: jdbc:mysql://localhost:3306/to_do_list_db
-  #   username: pro
-  #   password: helloworld123
-
+  config:
+    import: optional:file:.env[.properties]
   datasource:
-    url: jdbc:mysql://turntable.proxy.rlwy.net:20323/railway?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: CsWMjfoRKYZGgVCmdNQqqahvKfiUjLIM
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
@@ -22,7 +20,7 @@ server:
 
 app:
   jwt:
-    secret: change-me-to-a-32-byte-secret-key!!
+    secret: ${APP_JWT_SECRET:change-me-to-a-32-byte-secret-key!!}
     expiration-ms: 3600000
 
 logging:

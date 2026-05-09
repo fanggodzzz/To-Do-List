@@ -2,11 +2,14 @@ package com.tp.todolist.security;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.tp.todolist.dto.UserJWT;
@@ -14,14 +17,30 @@ import com.tp.todolist.dto.UserJWT;
 @Component
 public class JwtUtil {
 
-    @Value("${app.jwt.secret:change-me-to-a-32-byte-secret-key!!}")
+    @Value("${app.jwt.secret:GENERATE}")
     private String secret;
 
     @Value("${app.jwt.expiration-ms:3600000}")
     private long expirationTime;
 
+    @PostConstruct
+    private void initSecret() {
+
+        if ("GENERATE".equals(secret)) {
+
+            byte[] keyBytes = Keys.secretKeyFor(SignatureAlgorithm.HS256)
+                    .getEncoded();
+
+            secret = Base64.getEncoder().encodeToString(keyBytes);
+
+            System.out.println("Generated JWT Secret:");
+            System.out.println(secret);
+        }
+    }
+
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+        return Keys.hmacShaKeyFor(
+                secret.getBytes(StandardCharsets.UTF_8));
     }
 
     // Generate token
