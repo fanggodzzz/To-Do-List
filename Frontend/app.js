@@ -1,11 +1,15 @@
-const DEFAULT_API_BASE = "http://localhost:8080/api/todos";
+const DEFAULT_API_BASE = "https://to-do-list-eki9.onrender.com/api/todos";
 
 function normalizeApiBase(value) {
   if (!value) {
     return DEFAULT_API_BASE;
   }
 
-  return value.replace(/\/api\/todo?s?$/, "/api/todos");
+  const normalized = value.replace(/\/api\/todo?s?$/, "/api/todos");
+  if (normalized === "http://localhost:8080/api/todos") {
+    return DEFAULT_API_BASE;
+  }
+  return normalized;
 }
 
 const queryApiBase = new URLSearchParams(window.location.search).get("api");
