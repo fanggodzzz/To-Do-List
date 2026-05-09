@@ -17,7 +17,7 @@ import com.tp.todolist.dto.UserJWT;
 @Component
 public class JwtUtil {
 
-    @Value("${app.jwt.secret:GENERATE}")
+    @Value("${app.jwt.secret:GENERATE_A_RANDOM_SECRET}")
     private String secret;
 
     @Value("${app.jwt.expiration-ms:3600000}")
@@ -26,7 +26,7 @@ public class JwtUtil {
     @PostConstruct
     private void initSecret() {
 
-        if ("GENERATE".equals(secret)) {
+        if ("GENERATE_A_RANDOM_SECRET".equals(secret)) {
 
             byte[] keyBytes = Keys.secretKeyFor(SignatureAlgorithm.HS256)
                     .getEncoded();
