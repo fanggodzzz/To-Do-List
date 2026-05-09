@@ -1,44 +1,44 @@
 const DEFAULT_API_BASE = "http://localhost:8080/api/todos";
+const AUTH_TOKEN_STORAGE_KEY = "todoAuthToken";
 
 function normalizeApiBase(value) {
   if (!value) {
     return DEFAULT_API_BASE;
   }
-
   return value.replace(/\/api\/todo?s?$/, "/api/todos");
 }
 
-const queryApiBase = new URLSearchParams(window.location.search).get("api");
-if (queryApiBase) {
-  localStorage.setItem("todoApiBase", normalizeApiBase(queryApiBase));
+const API = normalizeApiBase(
+  localStorage.getItem("todoApiBase") || DEFAULT_API_BASE,
+);
+
+function bootstrapAuthTokenFromUrl() {
+  const url = new URL(window.location.href);
+  const token = url.searchParams.get("token");
+
+  if (!token) {
+    return;
+  }
+
+  localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
+  url.searchParams.delete("token");
+  window.history.replaceState(
+    {},
+    "",
+    `${url.pathname}${url.search}${url.hash}`,
+  );
 }
-
-const storedApiBase = normalizeApiBase(localStorage.getItem("todoApiBase"));
-if (storedApiBase !== localStorage.getItem("todoApiBase")) {
-  localStorage.setItem("todoApiBase", storedApiBase);
-}
-
-const API = normalizeApiBase(queryApiBase || storedApiBase || DEFAULT_API_BASE);
-
-const AUTH_TOKEN_STORAGE_KEY = "todoAuthToken";
-const AUTH_API = API.replace(/\/api\/todos$/, "/api/auth");
 
 function apiUrl(path) {
   return `${API}${path}`;
 }
 
-function authUrl(path) {
-  return `${AUTH_API}${path}`;
-}
-
 function buildAuthHeaders(extraHeaders = {}) {
   const headers = { ...extraHeaders };
   const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
-
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
-
   return headers;
 }
 
@@ -49,10 +49,7 @@ function hasAuthToken() {
 function decodeJwtPayload(token) {
   try {
     const payload = token.split(".")[1];
-    if (!payload) {
-      return null;
-    }
-
+    if (!payload) return null;
     const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
     const padded = normalized + "=".repeat((4 - (normalized.length % 4)) % 4);
     return JSON.parse(atob(padded));
@@ -61,40 +58,18 @@ function decodeJwtPayload(token) {
   }
 }
 
-function setAuthStatus(message, isError = false) {
-  if (!authStatus) {
-    return;
-  }
-
-  authStatus.textContent = message;
-  authStatus.classList.toggle("auth-status--error", isError);
-}
-
 function updateAuthChip() {
-  if (!authSessionChip) {
-    return;
-  }
-
+  const chip = document.getElementById("authSessionChip");
+  if (!chip) return;
   const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
   if (!token) {
-    authSessionChip.textContent = "Not signed in";
+    chip.textContent = "Not signed in";
     return;
   }
-
   const payload = decodeJwtPayload(token);
   const username = payload?.username || payload?.sub || "Signed in";
   const role = payload?.role ? payload.role.toUpperCase() : "";
-  authSessionChip.textContent = role ? `${username} · ${role}` : username;
-}
-
-function storeAuthToken(token) {
-  if (token) {
-    localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
-  } else {
-    localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
-  }
-
-  updateAuthChip();
+  chip.textContent = role ? `${username} · ${role}` : username;
 }
 
 function clearAppState() {
@@ -105,39 +80,25 @@ function clearAppState() {
   state.selectedTodoId = null;
   state.selectedTagId = null;
   state.listDrawerContext = null;
-
   renderCalendar();
   renderSummaryBoxes();
   renderTagLabels();
   buildTagOptions(addTagSelect);
   buildTagOptions(detailTag);
-
-  if (drawerBackdrop) {
-    drawerBackdrop.classList.remove("drawer-backdrop--open");
-  }
-  if (listDrawer) {
-    listDrawer.classList.remove("list-drawer--open");
-  }
-  if (drawer) {
-    drawer.classList.remove("detail-drawer--open");
-  }
-  if (tagDrawer) {
-    tagDrawer.classList.remove("detail-drawer--open");
-  }
-  if (addTagDrawer) {
-    addTagDrawer.classList.remove("detail-drawer--open");
-  }
-
+  if (drawerBackdrop) drawerBackdrop.classList.remove("drawer-backdrop--open");
+  if (listDrawer) listDrawer.classList.remove("list-drawer--open");
+  if (drawer) drawer.classList.remove("detail-drawer--open");
+  if (tagDrawer) tagDrawer.classList.remove("detail-drawer--open");
+  if (addTagDrawer) addTagDrawer.classList.remove("detail-drawer--open");
   setStatus("");
 }
 
 function authorizedFetch(path, options = {}) {
   if (!hasAuthToken()) {
     const error = new Error("Please sign in first.");
-    setAuthStatus(error.message, true);
+    setStatus(error.message, true);
     return Promise.reject(error);
   }
-
   return fetch(apiUrl(path), {
     ...options,
     headers: buildAuthHeaders(options.headers),
@@ -145,10 +106,7 @@ function authorizedFetch(path, options = {}) {
 }
 
 function normalizeTag(tag) {
-  if (!tag) {
-    return null;
-  }
-
+  if (!tag) return null;
   return {
     tag_id: tag.tagId ?? tag.tag_id,
     tag_name: tag.tagName ?? tag.tag_name,
@@ -156,10 +114,7 @@ function normalizeTag(tag) {
 }
 
 function resolveTagById(tagId) {
-  if (tagId == null) {
-    return null;
-  }
-
+  if (tagId == null) return null;
   return (
     state.tags.find((tag) => Number(tag.tag_id) === Number(tagId)) || {
       tag_id: Number(tagId),
@@ -169,17 +124,13 @@ function resolveTagById(tagId) {
 }
 
 function normalizeTodo(todo) {
-  if (!todo) {
-    return null;
-  }
-
+  if (!todo) return null;
   const tagId =
     todo.acTagId ??
     todo.ac_tag_id?.tagId ??
     todo.ac_tag_id?.tag_id ??
     todo.ac_tag_id ??
     null;
-
   return {
     ac_id: todo.acId ?? todo.ac_id,
     ac_due_date: todo.acDueDate ?? todo.ac_due_date,
@@ -227,16 +178,8 @@ const monthLabel = document.getElementById("monthLabel");
 const calendarGrid = document.getElementById("calendarGrid");
 const apiStatus = document.getElementById("apiStatus");
 const tagLabelList = document.getElementById("tagLabelList");
-const authStatus = document.getElementById("authStatus");
 const authSessionChip = document.getElementById("authSessionChip");
-const loginForm = document.getElementById("loginForm");
-const registerForm = document.getElementById("registerForm");
 const logoutBtn = document.getElementById("logoutBtn");
-const loginUserName = document.getElementById("loginUserName");
-const loginPassword = document.getElementById("loginPassword");
-const registerUserName = document.getElementById("registerUserName");
-const registerEmail = document.getElementById("registerEmail");
-const registerPassword = document.getElementById("registerPassword");
 
 const drawer = document.getElementById("detailDrawer");
 const listDrawer = document.getElementById("listDrawer");
@@ -271,16 +214,12 @@ const overdueSummaryCard = document.getElementById("overdueSummaryCard");
 const overduePreviewList = document.getElementById("overduePreviewList");
 const tagEditName = document.getElementById("tagEditName");
 const newTagDrawerName = document.getElementById("newTagDrawerName");
-
 const addDescription = document.getElementById("addDescription");
 const addTagSelect = document.getElementById("addTag");
 const addDueDate = document.getElementById("addDueDate");
 
 function formatDate(value) {
-  if (!value) {
-    return "";
-  }
-
+  if (!value) return "";
   return value.includes("T") ? value.split("T")[0] : value;
 }
 
@@ -294,10 +233,7 @@ function getMonthTitle(date) {
 
 function formatLongDate(value) {
   const normalized = formatDate(value);
-  if (!normalized) {
-    return "";
-  }
-
+  if (!normalized) return "";
   return new Date(`${normalized}T00:00:00`).toLocaleDateString(undefined, {
     weekday: "long",
     year: "numeric",
@@ -332,29 +268,18 @@ function sortTasksDescending(tasks) {
 }
 
 function clipDescription(text) {
-  if (!text) {
-    return "";
-  }
-
+  if (!text) return "";
   return text.length > 22 ? `${text.slice(0, 22)}...` : text;
 }
 
 function clipCalendarDescription(text) {
-  if (!text) {
-    return "";
-  }
-
+  if (!text) return "";
   return text.length > 14 ? `${text.slice(0, 14)}...` : text;
 }
 
 function openPicker(input) {
-  if (!input) {
-    return;
-  }
-
-  if (typeof input.showPicker === "function") {
-    input.showPicker();
-  }
+  if (!input || typeof input.showPicker !== "function") return;
+  input.showPicker();
 }
 
 function setStatus(message, isError = false) {
@@ -368,7 +293,6 @@ function syncBackdropState() {
     listDrawer.classList.contains("list-drawer--open") ||
     tagDrawer.classList.contains("detail-drawer--open") ||
     addTagDrawer.classList.contains("detail-drawer--open");
-
   drawerBackdrop.classList.toggle("drawer-backdrop--open", shouldShowBackdrop);
 }
 
@@ -382,26 +306,18 @@ function hexToRgba(hex, alpha) {
 }
 
 function getTagColor(tagId) {
-  if (tagId == null) {
-    return TAG_COLOR_PALETTE[0];
-  }
-
+  if (tagId == null) return TAG_COLOR_PALETTE[0];
   const index = Math.abs(Number(tagId)) % TAG_COLOR_PALETTE.length;
   return TAG_COLOR_PALETTE[index];
 }
 
 function buildTagOptions(selectElement, selectedTagId) {
-  if (!selectElement) {
-    return;
-  }
-
+  if (!selectElement) return;
   selectElement.innerHTML = "";
-
   const placeholder = document.createElement("option");
   placeholder.value = "";
   placeholder.textContent = "Select tag";
   selectElement.appendChild(placeholder);
-
   state.tags.forEach((tag) => {
     const option = document.createElement("option");
     option.value = String(tag.tag_id);
@@ -414,12 +330,8 @@ function buildTagOptions(selectElement, selectedTagId) {
 }
 
 function renderTagLabels() {
-  if (!tagLabelList) {
-    return;
-  }
-
+  if (!tagLabelList) return;
   tagLabelList.innerHTML = "";
-
   state.tags.forEach((tag) => {
     const pill = document.createElement("button");
     pill.type = "button";
@@ -431,7 +343,6 @@ function renderTagLabels() {
     pill.onclick = () => openTagDrawer(tag.tag_id);
     tagLabelList.appendChild(pill);
   });
-
   const addButton = document.createElement("button");
   addButton.type = "button";
   addButton.className = "icon-btn tag-plus-btn";
@@ -439,7 +350,6 @@ function renderTagLabels() {
   addButton.setAttribute("aria-label", "Add tag");
   addButton.onclick = openAddTagDrawer;
   tagLabelList.appendChild(addButton);
-
   if (!state.tags.length) {
     const empty = document.createElement("span");
     empty.className = "tag-label-empty";
@@ -449,10 +359,7 @@ function renderTagLabels() {
 }
 
 function setDrawerAddPanelOpen(isOpen) {
-  if (!drawerAddPanel) {
-    return;
-  }
-
+  if (!drawerAddPanel) return;
   drawerAddPanel.classList.toggle("drawer-add-panel--open", isOpen);
   if (toggleDrawerAddBtn) {
     toggleDrawerAddBtn.setAttribute("aria-expanded", String(isOpen));
@@ -468,20 +375,16 @@ function refreshActiveListDrawer() {
   if (
     !state.listDrawerContext ||
     !listDrawer.classList.contains("list-drawer--open")
-  ) {
+  )
     return;
-  }
-
   if (state.listDrawerContext.allowAdd && state.listDrawerContext.date) {
     openDayDrawer(new Date(`${state.listDrawerContext.date}T00:00:00`));
     return;
   }
-
   if (state.listDrawerContext.kicker === "Upcoming") {
     openUpcomingDrawer();
     return;
   }
-
   if (state.listDrawerContext.kicker === "Overdue") {
     openOverdueDrawer();
   }
@@ -499,9 +402,7 @@ function refreshAfterMutation() {
 function loadTags() {
   return authorizedFetch("/tags")
     .then((res) => {
-      if (!res.ok) {
-        throw new Error(`Tags endpoint failed (${res.status}) at ${res.url}`);
-      }
+      if (!res.ok) throw new Error(`Tags endpoint failed (${res.status})`);
       return res.json();
     })
     .then((data) => {
@@ -527,19 +428,12 @@ function createTag(name) {
     setStatus("Tag name is required.", true);
     return Promise.reject(new Error("Tag name is required"));
   }
-
   return authorizedFetch("/tags/add", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      tagName: trimmedName,
-    }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tagName: trimmedName }),
   }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Unable to add tag");
-    }
+    if (!res.ok) throw new Error("Unable to add tag");
     return refreshAfterMutation();
   });
 }
@@ -550,33 +444,23 @@ function updateTag(tagId, name) {
     setStatus("Tag name is required.", true);
     return Promise.reject(new Error("Tag name is required"));
   }
-
   return authorizedFetch("/tags/update/", {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      tagId: Number(tagId),
-      tagName: trimmedName,
-    }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tagId: Number(tagId), tagName: trimmedName }),
   }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Unable to update tag");
-    }
+    if (!res.ok) throw new Error("Unable to update tag");
     return refreshAfterMutation();
   });
 }
 
 function deleteTag(tagId) {
-  return authorizedFetch(`/tags/delete/${tagId}`, {
-    method: "DELETE",
-  }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Unable to delete tag");
-    }
-    return refreshAfterMutation();
-  });
+  return authorizedFetch(`/tags/delete/${tagId}`, { method: "DELETE" }).then(
+    (res) => {
+      if (!res.ok) throw new Error("Unable to delete tag");
+      return refreshAfterMutation();
+    },
+  );
 }
 
 function openListDrawer(context) {
@@ -584,13 +468,10 @@ function openListDrawer(context) {
   listDrawerKicker.textContent = context.kicker;
   listDrawerTitle.textContent = context.title;
   listDrawerMeta.textContent = context.meta || "";
-  if (toggleDrawerAddBtn) {
-    toggleDrawerAddBtn.hidden = !context.allowAdd;
-  }
+  if (toggleDrawerAddBtn) toggleDrawerAddBtn.hidden = !context.allowAdd;
 
   listDrawerItems.innerHTML = "";
   const items = context.items || [];
-
   if (!items.length) {
     const empty = document.createElement("p");
     empty.className = "list-drawer-empty";
@@ -602,13 +483,11 @@ function openListDrawer(context) {
       item.className = "list-task-item";
       item.tabIndex = 0;
       item.setAttribute("role", "button");
-
       const tagColor = getTagColor(todo.ac_tag_id?.tag_id);
       item.style.borderColor = hexToRgba(tagColor, 0.52);
 
       const header = document.createElement("div");
       header.className = "list-task-item__header";
-
       const tagBadge = document.createElement("span");
       tagBadge.className = "calendar-task-tag";
       tagBadge.textContent = todo.ac_tag_id?.tag_name || "No tag";
@@ -617,7 +496,6 @@ function openListDrawer(context) {
 
       const taskActions = document.createElement("div");
       taskActions.className = "list-task-actions";
-
       const status = document.createElement("span");
       status.className = "list-task-status";
       status.textContent = todo.ac_completed ? "Done" : "Open";
@@ -626,17 +504,14 @@ function openListDrawer(context) {
       quickDeleteBtn.type = "button";
       quickDeleteBtn.className = "list-task-delete-btn";
       quickDeleteBtn.textContent = "🗑";
-      quickDeleteBtn.setAttribute("aria-label", "Delete task");
       quickDeleteBtn.onclick = (event) => {
         event.stopPropagation();
         deleteTaskById(todo.ac_id).catch(() =>
           setStatus("Unable to delete task.", true),
         );
       };
-
       taskActions.appendChild(status);
       taskActions.appendChild(quickDeleteBtn);
-
       header.appendChild(tagBadge);
       header.appendChild(taskActions);
 
@@ -690,7 +565,6 @@ function openDayDrawer(day) {
   const tasks = sortTasksAscending(
     state.todos.filter((todo) => isSameCalendarDate(todo.ac_due_date, key)),
   );
-
   openListDrawer({
     kicker: "Date",
     title: formatLongDate(day.toISOString()),
@@ -725,12 +599,8 @@ function openOverdueDrawer() {
 }
 
 function renderSummaryPreview(container, items, emptyText) {
-  if (!container) {
-    return;
-  }
-
+  if (!container) return;
   container.innerHTML = "";
-
   if (!items.length) {
     const empty = document.createElement("p");
     empty.className = "summary-empty";
@@ -738,20 +608,15 @@ function renderSummaryPreview(container, items, emptyText) {
     container.appendChild(empty);
     return;
   }
-
-  // Keep full data but visually show a 5-item viewport via CSS scrolling.
   items.forEach((todo) => {
     const row = document.createElement("div");
     row.className = "summary-preview-item";
-
     const title = document.createElement("span");
     title.className = "summary-preview-item__title";
     title.textContent = clipDescription(todo.ac_description);
-
     const meta = document.createElement("span");
     meta.className = "summary-preview-item__meta";
     meta.textContent = `${formatDate(todo.ac_due_date)} · ${todo.ac_tag_id?.tag_name || "No tag"}`;
-
     row.appendChild(title);
     row.appendChild(meta);
     container.appendChild(row);
@@ -773,10 +638,7 @@ function renderSummaryBoxes() {
 
 function openTagDrawer(tagId) {
   const tag = state.tags.find((item) => item.tag_id === tagId);
-  if (!tag) {
-    return;
-  }
-
+  if (!tag) return;
   state.selectedTagId = tag.tag_id;
   tagEditName.value = tag.tag_name || "";
   tagDrawer.classList.add("detail-drawer--open");
@@ -812,10 +674,7 @@ function addTagFromDrawer() {
 }
 
 function saveTagChanges() {
-  if (state.selectedTagId == null) {
-    return;
-  }
-
+  if (state.selectedTagId == null) return;
   updateTag(state.selectedTagId, tagEditName.value)
     .then(() => {
       closeTagDrawer();
@@ -825,10 +684,7 @@ function saveTagChanges() {
 }
 
 function deleteSelectedTag() {
-  if (state.selectedTagId == null) {
-    return;
-  }
-
+  if (state.selectedTagId == null) return;
   deleteTag(state.selectedTagId)
     .then(() => {
       closeTagDrawer();
@@ -840,18 +696,15 @@ function deleteSelectedTag() {
 function buildMonthGrid() {
   const year = state.currentMonth.getFullYear();
   const month = state.currentMonth.getMonth();
-
   const firstDay = new Date(year, month, 1);
   const startOffset = (firstDay.getDay() + 6) % 7;
   const gridStart = new Date(year, month, 1 - startOffset);
-
   const days = [];
   for (let i = 0; i < 42; i += 1) {
     const d = new Date(gridStart);
     d.setDate(gridStart.getDate() + i);
     days.push(d);
   }
-
   return days;
 }
 
@@ -863,9 +716,7 @@ function todosByDateMap() {
   const map = new Map();
   state.todos.forEach((todo) => {
     const key = getDateKey(todo.ac_due_date);
-    if (!map.has(key)) {
-      map.set(key, []);
-    }
+    if (!map.has(key)) map.set(key, []);
     map.get(key).push(todo);
   });
   return map;
@@ -874,7 +725,6 @@ function todosByDateMap() {
 function renderCalendar() {
   monthLabel.textContent = getMonthTitle(state.currentMonth);
   calendarGrid.innerHTML = "";
-
   const weekdayLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   weekdayLabels.forEach((label) => {
     const head = document.createElement("div");
@@ -882,21 +732,15 @@ function renderCalendar() {
     head.textContent = label;
     calendarGrid.appendChild(head);
   });
-
   const map = todosByDateMap();
   const todayKey = getDateKey(new Date().toISOString());
-
   buildMonthGrid().forEach((day) => {
     const key = getDateKey(day.toISOString());
     const isCurrentMonth = day.getMonth() === state.currentMonth.getMonth();
     const dayCell = document.createElement("div");
     dayCell.className = "day-cell";
-    if (!isCurrentMonth) {
-      dayCell.classList.add("day-cell--muted");
-    }
-    if (key === todayKey) {
-      dayCell.classList.add("day-cell--today");
-    }
+    if (!isCurrentMonth) dayCell.classList.add("day-cell--muted");
+    if (key === todayKey) dayCell.classList.add("day-cell--today");
     dayCell.classList.add("day-cell--clickable");
 
     const dayNumber = document.createElement("span");
@@ -910,17 +754,12 @@ function renderCalendar() {
       const task = document.createElement("button");
       task.type = "button";
       task.className = "calendar-task";
-      if (todo.ac_completed) {
-        task.classList.add("calendar-task--done");
-      }
-
+      if (todo.ac_completed) task.classList.add("calendar-task--done");
       task.style.background = "rgba(73, 108, 255, 0.26)";
       task.style.borderColor = "rgba(135, 160, 255, 0.32)";
-
       const taskText = document.createElement("span");
       taskText.className = "calendar-task-text";
       taskText.textContent = clipCalendarDescription(todo.ac_description);
-
       task.appendChild(taskText);
       task.onclick = (event) => {
         event.stopPropagation();
@@ -937,7 +776,6 @@ function renderCalendar() {
     }
 
     dayCell.onclick = () => openDayDrawer(day);
-
     calendarGrid.appendChild(dayCell);
   });
 }
@@ -945,12 +783,7 @@ function renderCalendar() {
 function loadUpcomingTasks() {
   return authorizedFetch("/upcoming")
     .then((res) => {
-      if (!res.ok) {
-        throw new Error(
-          `Upcoming endpoint failed (${res.status}) at ${res.url}`,
-        );
-      }
-
+      if (!res.ok) throw new Error(`Upcoming endpoint failed (${res.status})`);
       return res.json();
     })
     .then((data) => {
@@ -968,12 +801,7 @@ function loadUpcomingTasks() {
 function loadOverdueTasks() {
   return authorizedFetch("/overdue")
     .then((res) => {
-      if (!res.ok) {
-        throw new Error(
-          `Overdue endpoint failed (${res.status}) at ${res.url}`,
-        );
-      }
-
+      if (!res.ok) throw new Error(`Overdue endpoint failed (${res.status})`);
       return res.json();
     })
     .then((data) => {
@@ -990,13 +818,9 @@ function loadOverdueTasks() {
 
 function loadTodos() {
   setStatus("Loading tasks...");
-
   return authorizedFetch(`/${getCurrentMonthQuery()}`)
     .then((res) => {
-      if (!res.ok) {
-        throw new Error(`Todos endpoint failed (${res.status}) at ${res.url}`);
-      }
-
+      if (!res.ok) throw new Error(`Todos endpoint failed (${res.status})`);
       return res.json();
     })
     .then((data) => {
@@ -1016,17 +840,13 @@ function addTodo() {
   const description = addDescription.value.trim();
   const tagId = addTagSelect.value;
   const dueDate = addDueDate.value || state.listDrawerContext?.date;
-
   if (!description || !tagId || !dueDate) {
     setStatus("Description and tag are required.", true);
     return;
   }
-
   authorizedFetch("/add", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       acDueDate: dueDate,
       acDescription: description,
@@ -1035,54 +855,36 @@ function addTodo() {
     }),
   })
     .then((res) => {
-      if (!res.ok) {
-        throw new Error("Unable to add task");
-      }
-
+      if (!res.ok) throw new Error("Unable to add task");
       addDescription.value = "";
       addTagSelect.value = "";
       addDueDate.value = "";
       setStatus("Task added.");
-      return refreshAfterMutation().then(() => {
-        refreshActiveListDrawer();
-      });
+      return refreshAfterMutation().then(() => refreshActiveListDrawer());
     })
     .catch(() => setStatus("Unable to add task.", true));
 }
 
 function deleteTaskById(todoId, options = {}) {
   const { closeDetailPanel = false } = options;
-
-  return authorizedFetch(`/delete/${todoId}`, {
-    method: "DELETE",
-  }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Unable to delete task");
-    }
-
-    if (closeDetailPanel) {
-      closeDrawer();
-    }
-
-    setStatus("Task deleted.");
-    return refreshAfterMutation().then(() => {
-      refreshActiveListDrawer();
-    });
-  });
+  return authorizedFetch(`/delete/${todoId}`, { method: "DELETE" }).then(
+    (res) => {
+      if (!res.ok) throw new Error("Unable to delete task");
+      if (closeDetailPanel) closeDrawer();
+      setStatus("Task deleted.");
+      return refreshAfterMutation().then(() => refreshActiveListDrawer());
+    },
+  );
 }
 
 function openDrawer(todoId) {
   const todo = state.todos.find((item) => item.ac_id === todoId);
-  if (!todo) {
-    return;
-  }
-
+  if (!todo) return;
   state.selectedTodoId = todo.ac_id;
   detailDescription.value = todo.ac_description || "";
   buildTagOptions(detailTag, todo.ac_tag_id ? todo.ac_tag_id.tag_id : null);
   detailDueDate.value = formatDate(todo.ac_due_date);
   detailCompleted.checked = Boolean(todo.ac_completed);
-
   drawer.classList.add("detail-drawer--open");
   drawerBackdrop.classList.add("drawer-backdrop--open");
 }
@@ -1094,10 +896,7 @@ function closeDrawer() {
 }
 
 function saveTask() {
-  if (state.selectedTodoId == null) {
-    return;
-  }
-
+  if (state.selectedTodoId == null) return;
   const payload = {
     acId: state.selectedTodoId,
     acDescription: detailDescription.value.trim(),
@@ -1105,23 +904,17 @@ function saveTask() {
     acCompleted: detailCompleted.checked,
     acTagId: Number(detailTag.value),
   };
-
   if (!payload.acDescription || !detailTag.value || !payload.acDueDate) {
     setStatus("Description, tag, and due date are required.", true);
     return;
   }
-
   authorizedFetch(`/update/`, {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   })
     .then((res) => {
-      if (!res.ok) {
-        throw new Error("Unable to update task");
-      }
+      if (!res.ok) throw new Error("Unable to update task");
       closeDrawer();
       setStatus("Task updated.");
       refreshAfterMutation();
@@ -1129,61 +922,13 @@ function saveTask() {
     .catch(() => setStatus("Unable to update task.", true));
 }
 
-function loginWithCredentials(userName, userPassword) {
-  return fetch(authUrl("/login"), {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ userName, userPassword }),
-  })
-    .then((res) => res.text().then((text) => ({ res, text: text.trim() })))
-    .then(({ res, text }) => {
-      if (!res.ok) {
-        throw new Error(text || "Unable to log in");
-      }
-
-      storeAuthToken(text);
-      setAuthStatus("Logged in.");
-      return Promise.all([
-        loadTags(),
-        loadTodos(),
-        loadUpcomingTasks(),
-        loadOverdueTasks(),
-      ]);
-    });
-}
-
-function registerAccount(userName, userEmail, userPassword) {
-  return fetch(authUrl("/register"), {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ userName, userEmail, userPassword }),
-  })
-    .then((res) => res.text().then((text) => ({ res, text: text.trim() })))
-    .then(({ res, text }) => {
-      if (!res.ok) {
-        throw new Error(text || "Unable to register");
-      }
-
-      setAuthStatus(text || "Account created.");
-      return loginWithCredentials(userName, userPassword);
-    });
-}
-
 function logout() {
-  storeAuthToken(null);
-  setAuthStatus("Logged out.");
-  clearAppState();
+  localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+  window.location.href = "welcome.html";
 }
 
 function deleteTask() {
-  if (state.selectedTodoId == null) {
-    return;
-  }
-
+  if (state.selectedTodoId == null) return;
   deleteTaskById(state.selectedTodoId, { closeDetailPanel: true }).catch(() =>
     setStatus("Unable to delete task.", true),
   );
@@ -1197,12 +942,19 @@ function closeAllDrawers() {
   drawerBackdrop.classList.remove("drawer-backdrop--open");
 }
 
+// Check auth and redirect if needed
+bootstrapAuthTokenFromUrl();
+
+if (!hasAuthToken()) {
+  window.location.href = "welcome.html";
+}
+
+// Event listeners
 document.getElementById("prevMonthBtn").addEventListener("click", () => {
   if (!hasAuthToken()) {
-    setAuthStatus("Sign in first.", true);
+    setStatus("Sign in first.", true);
     return;
   }
-
   state.currentMonth = new Date(
     state.currentMonth.getFullYear(),
     state.currentMonth.getMonth() - 1,
@@ -1213,10 +965,9 @@ document.getElementById("prevMonthBtn").addEventListener("click", () => {
 
 document.getElementById("nextMonthBtn").addEventListener("click", () => {
   if (!hasAuthToken()) {
-    setAuthStatus("Sign in first.", true);
+    setStatus("Sign in first.", true);
     return;
   }
-
   state.currentMonth = new Date(
     state.currentMonth.getFullYear(),
     state.currentMonth.getMonth() + 1,
@@ -1227,10 +978,7 @@ document.getElementById("nextMonthBtn").addEventListener("click", () => {
 
 closeListDrawerBtn.addEventListener("click", closeListDrawer);
 toggleDrawerAddBtn.addEventListener("click", () => {
-  if (!state.listDrawerContext?.allowAdd) {
-    return;
-  }
-
+  if (!state.listDrawerContext?.allowAdd) return;
   setDrawerAddPanelOpen(
     !drawerAddPanel.classList.contains("drawer-add-panel--open"),
   );
@@ -1248,20 +996,6 @@ confirmAddTagBtn.addEventListener("click", addTagFromDrawer);
 confirmDrawerAddBtn.addEventListener("click", addTodo);
 upcomingSummaryCard.addEventListener("click", openUpcomingDrawer);
 overdueSummaryCard.addEventListener("click", openOverdueDrawer);
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  loginWithCredentials(loginUserName.value.trim(), loginPassword.value).catch(
-    (error) => setAuthStatus(error.message, true),
-  );
-});
-registerForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  registerAccount(
-    registerUserName.value.trim(),
-    registerEmail.value.trim(),
-    registerPassword.value,
-  ).catch((error) => setAuthStatus(error.message, true));
-});
 logoutBtn.addEventListener("click", logout);
 newTagDrawerName.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
@@ -1275,21 +1009,8 @@ tagEditName.addEventListener("keydown", (event) => {
     saveTagChanges();
   }
 });
-
 detailDueDate.addEventListener("focus", () => openPicker(detailDueDate));
 
+// Initialize
 updateAuthChip();
-
-if (hasAuthToken()) {
-  Promise.all([
-    loadTags(),
-    loadTodos(),
-    loadUpcomingTasks(),
-    loadOverdueTasks(),
-  ]);
-} else {
-  setAuthStatus("Sign in to load tasks and manage tags.");
-  renderCalendar();
-  renderSummaryBoxes();
-  renderTagLabels();
-}
+Promise.all([loadTags(), loadTodos(), loadUpcomingTasks(), loadOverdueTasks()]);

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Calendar - Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="auth-shell">
+      <div class="auth-container">
+        <form id="loginForm" class="auth-card">
+          <div class="auth-header">
+            <h1>Task Calendar</h1>
+            <h2>Sign In</h2>
+          </div>
+
+          <div class="auth-form">
+            <label for="loginUserName">Username</label>
+            <input
+              id="loginUserName"
+              type="text"
+              autocomplete="username"
+              placeholder="Enter your username"
+              required
+            />
+
+            <label for="loginPassword">Password</label>
+            <input
+              id="loginPassword"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Enter your password"
+              required
+            />
+
+            <button class="primary-btn" id="loginBtn" type="submit">
+              Log In
+            </button>
+          </div>
+
+          <div class="auth-footer">
+            <p>Don't have an account?</p>
+            <a href="register.html" class="auth-link">Register here</a>
+          </div>
+
+          <p id="authStatus" class="auth-status"></p>
+        </form>
+      </div>
+    </main>
+
+    <script src="app-login.js"></script>
+  </body>
+</html>

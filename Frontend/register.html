@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Calendar - Register</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="auth-shell">
+      <div class="auth-container">
+        <form id="registerForm" class="auth-card">
+          <div class="auth-header">
+            <h1>Task Calendar</h1>
+            <h2>Create Account</h2>
+          </div>
+
+          <div class="auth-form">
+            <label for="registerUserName">Username</label>
+            <input
+              id="registerUserName"
+              type="text"
+              autocomplete="username"
+              placeholder="Choose a username"
+              required
+            />
+
+            <label for="registerEmail">Email</label>
+            <input
+              id="registerEmail"
+              type="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            />
+
+            <label for="registerPassword">Password</label>
+            <input
+              id="registerPassword"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Enter a password"
+              required
+            />
+
+            <button class="primary-btn" id="registerBtn" type="submit">
+              Create Account
+            </button>
+          </div>
+
+          <div class="auth-footer">
+            <p>Already have an account?</p>
+            <a href="login.html" class="auth-link">Sign in here</a>
+          </div>
+
+          <p id="authStatus" class="auth-status"></p>
+        </form>
+      </div>
+    </main>
+
+    <script src="app-register.js"></script>
+  </body>
+</html>
