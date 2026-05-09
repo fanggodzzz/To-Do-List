@@ -5,17 +5,21 @@ import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
-
 import org.springframework.stereotype.Component;
 
 import com.tp.todolist.dto.UserJWT;
 
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+
 @Component
 public class JwtUtil {
+
+    private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
     @Value("${app.jwt.secret:GENERATE_A_RANDOM_SECRET}")
     private String secret;
@@ -77,15 +81,35 @@ public class JwtUtil {
     }
 
     // Validate token
-    public boolean validateToken(String token) {
+    public String getTokenValidationError(String token) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(getSigningKey())
                     .build()
                     .parseClaimsJws(token);
-            return true;
+            return null;
+        } catch (ExpiredJwtException e) {
+            logger.warn("JWT token expired at {}", e.getClaims().getExpiration());
+            return "JWT token has expired";
+        } catch (UnsupportedJwtException e) {
+            logger.warn("Unsupported JWT token: {}", e.getMessage());
+            return "Unsupported JWT token";
+        } catch (MalformedJwtException e) {
+            logger.warn("Malformed JWT token: {}", e.getMessage());
+            return "Malformed JWT token";
+        } catch (SignatureException e) {
+            logger.warn("Invalid JWT signature: {}", e.getMessage());
+            return "Invalid JWT signature";
+        } catch (IllegalArgumentException e) {
+            logger.warn("JWT token is empty: {}", e.getMessage());
+            return "JWT token is empty";
         } catch (Exception e) {
-            return false;
+            logger.warn("JWT validation failed: {}", e.getMessage());
+            return "JWT validation failed";
         }
+    }
+
+    public boolean validateToken(String token) {
+        return getTokenValidationError(token) == null;
     }
 }

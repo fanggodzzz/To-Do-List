@@ -480,3 +480,1209 @@ This generated password is for development use only. Your security configuration
 2026-05-09T00:40:55.585-04:00  INFO 29044 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-09T00:40:55.587-04:00  INFO 29044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-05-09T00:40:55.592-04:00  INFO 29044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-09T13:34:56.687-04:00  INFO 30108 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 30108 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:34:56.689-04:00  INFO 30108 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:34:56.725-04:00  INFO 30108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-09T13:34:56.726-04:00  INFO 30108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-09T13:34:57.239-04:00  INFO 30108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:34:57.291-04:00  INFO 30108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:34:57.676-04:00  INFO 30108 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:34:57.686-04:00  INFO 30108 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:34:57.686-04:00  INFO 30108 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:34:57.715-04:00  INFO 30108 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 989 ms
+2026-05-09T13:34:57.875-04:00  INFO 30108 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:34:57.916-04:00  INFO 30108 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-05-09T13:34:58.238-04:00  INFO 30108 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:34:58.260-04:00  INFO 30108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T13:34:59.342-04:00  INFO 30108 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f8ff24d
+2026-05-09T13:34:59.343-04:00  INFO 30108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T13:34:59.598-04:00  WARN 30108 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:34:59.713-04:00  INFO 30108 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://turntable.proxy.rlwy.net:20323/railway?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.4
+	Default catalog/schema: railway/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:35:00.434-04:00  INFO 30108 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:35:01.259-04:00  INFO 30108 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:35:01.325-04:00  INFO 30108 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09T13:35:01.755-04:00  WARN 30108 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:35:01.815-04:00  WARN 30108 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 12308b98-386d-4890-a127-bc32757c4d29
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:35:01.822-04:00  INFO 30108 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:35:02.031-04:00  WARN 30108 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:35:02.158-04:00  INFO 30108 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:35:02.161-04:00  INFO 30108 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 5.771 seconds (process running for 6.074)
+2026-05-09T13:36:56.542-04:00  INFO 30108 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:36:56.547-04:00  INFO 30108 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:36:56.551-04:00  INFO 30108 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:36:56.553-04:00  INFO 30108 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-09T13:36:56.562-04:00  INFO 30108 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-09T13:37:34.956-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:37:34.959-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:37:34.996-04:00  INFO 15380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-09T13:37:34.997-04:00  INFO 15380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-09T13:37:35.394-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:37:35.434-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:37:35.769-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:37:35.778-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:37:35.778-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:37:35.802-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 805 ms
+2026-05-09T13:37:35.937-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:37:35.962-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-05-09T13:37:36.198-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:37:36.216-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T13:37:36.458-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42f9ff41
+2026-05-09T13:37:36.459-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T13:37:36.497-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:37:36.509-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:37:37.094-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:37:37.146-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:37:37.202-04:00  INFO 15380 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09T13:37:37.576-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:37:37.634-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d3d6d283-6bc3-43c9-b4ad-7a47bf639a3f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:37:37.641-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:37:37.830-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:37:37.955-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:37:37.958-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 3.249 seconds (process running for 3.513)
+2026-05-09T13:39:38.481-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:38.486-04:00  INFO 15380 --- [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:38.495-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:38.499-04:00  INFO 15380 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:38.502-04:00  INFO 15380 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-09T13:39:38.509-04:00  INFO 15380 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-09T13:39:38.576-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:38.576-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:38.688-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:38.706-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:38.787-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:38.788-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:38.788-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:38.802-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 224 ms
+2026-05-09T13:39:38.838-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:38.851-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:38.852-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-05-09T13:39:38.864-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18870217
+2026-05-09T13:39:38.864-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-05-09T13:39:38.865-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:38.866-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:38.911-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:38.928-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:39.057-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:39.095-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 224d15fd-479e-4ed4-81c7-33c37c7074f3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:39.096-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:39.179-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:39.250-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:39.254-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.701 seconds (process running for 124.808)
+2026-05-09T13:39:39.255-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:40.636-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:40.638-04:00  INFO 15380 --- [Thread-5] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:40.643-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:40.644-04:00  INFO 15380 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:40.645-04:00  INFO 15380 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-05-09T13:39:40.648-04:00  INFO 15380 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-05-09T13:39:40.718-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:40.719-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:40.838-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:40.852-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:40.915-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:40.916-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:40.916-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:40.925-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 203 ms
+2026-05-09T13:39:40.960-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:40.977-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:40.978-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-05-09T13:39:40.990-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@542f056a
+2026-05-09T13:39:40.990-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-05-09T13:39:40.991-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:40.992-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:41.032-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:41.047-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:41.148-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:41.179-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 3192dfaf-2b09-4400-8656-dbf7b8b3479c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:41.182-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:41.259-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:41.324-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:41.326-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.627 seconds (process running for 126.88)
+2026-05-09T13:39:41.327-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:42.706-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:42.707-04:00  INFO 15380 --- [Thread-9] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:42.711-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:42.713-04:00  INFO 15380 --- [Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:42.714-04:00  INFO 15380 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-05-09T13:39:42.715-04:00  INFO 15380 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-05-09T13:39:42.777-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:42.778-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:42.870-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:42.879-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:42.933-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:42.934-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:42.934-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:42.943-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 164 ms
+2026-05-09T13:39:42.983-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:42.995-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:42.996-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-05-09T13:39:43.006-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4bc2c0d4
+2026-05-09T13:39:43.006-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-05-09T13:39:43.008-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:43.009-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:43.056-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:43.069-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:43.165-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:43.189-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e2ab8dfa-5b0d-4c08-b6a8-813727c92799
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:43.193-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:43.264-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:43.316-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:43.318-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.556 seconds (process running for 128.872)
+2026-05-09T13:39:43.319-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:44.704-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:44.705-04:00  INFO 15380 --- [Thread-13] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:44.710-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:44.712-04:00  INFO 15380 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:44.713-04:00  INFO 15380 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-05-09T13:39:44.715-04:00  INFO 15380 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-05-09T13:39:44.790-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:44.791-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:44.894-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:44.907-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:44.971-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:44.972-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:44.972-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:44.983-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 191 ms
+2026-05-09T13:39:45.022-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:45.037-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:45.038-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-05-09T13:39:45.048-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16096fac
+2026-05-09T13:39:45.049-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-05-09T13:39:45.050-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:45.051-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:45.090-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:45.101-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:45.205-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:45.235-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a0f0d314-4036-4ec3-88e6-857911dab892
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:45.236-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:45.310-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:45.380-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:45.382-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.618 seconds (process running for 130.936)
+2026-05-09T13:39:45.383-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:46.763-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:46.765-04:00  INFO 15380 --- [Thread-17] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:46.775-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:46.776-04:00  INFO 15380 --- [Thread-17] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:46.778-04:00  INFO 15380 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-05-09T13:39:46.781-04:00  INFO 15380 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2026-05-09T13:39:46.868-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:46.868-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:47.007-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:47.031-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:47.141-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:47.143-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:47.143-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:47.168-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 297 ms
+2026-05-09T13:39:47.252-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:47.281-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:47.282-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-05-09T13:39:47.303-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@664f6b7a
+2026-05-09T13:39:47.303-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-05-09T13:39:47.305-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:47.306-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:47.378-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:47.398-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:47.537-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:47.581-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d823073e-8a45-4a8e-8d86-d4e9279ed3d2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:47.582-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:47.706-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:47.789-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:47.791-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.942 seconds (process running for 133.345)
+2026-05-09T13:39:47.792-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:49.564-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:49.565-04:00  INFO 15380 --- [Thread-21] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:49.574-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:49.576-04:00  INFO 15380 --- [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:49.577-04:00  INFO 15380 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-05-09T13:39:49.581-04:00  INFO 15380 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2026-05-09T13:39:49.662-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:49.663-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:49.789-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:49.803-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:49.883-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:49.884-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:49.885-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:49.899-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 234 ms
+2026-05-09T13:39:49.965-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:49.994-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:49.996-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-05-09T13:39:50.011-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b8f71ef
+2026-05-09T13:39:50.011-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-05-09T13:39:50.013-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:50.014-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:50.072-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:50.088-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:50.244-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:50.283-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bcb69bf5-e44a-442e-9797-7e2d1f01613b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:50.285-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:50.389-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:50.458-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:50.459-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.816 seconds (process running for 136.014)
+2026-05-09T13:39:50.461-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:52.239-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:52.241-04:00  INFO 15380 --- [Thread-25] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:52.243-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:52.245-04:00  INFO 15380 --- [Thread-25] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:52.246-04:00  INFO 15380 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-05-09T13:39:52.249-04:00  INFO 15380 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2026-05-09T13:39:52.313-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:52.313-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:52.392-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:52.403-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:52.459-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:52.460-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:52.460-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:52.473-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 159 ms
+2026-05-09T13:39:52.507-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:52.518-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:52.519-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-05-09T13:39:52.529-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ad8abb4
+2026-05-09T13:39:52.529-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-05-09T13:39:52.530-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:52.531-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:52.577-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:52.589-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:52.681-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:52.707-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 89c31ff8-2ace-4ac5-8c6a-aebe419c6df6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:52.708-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:52.775-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:52.827-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:52.829-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.531 seconds (process running for 138.383)
+2026-05-09T13:39:52.829-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:54.215-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:54.217-04:00  INFO 15380 --- [Thread-29] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:54.222-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:54.224-04:00  INFO 15380 --- [Thread-29] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:54.225-04:00  INFO 15380 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-05-09T13:39:54.228-04:00  INFO 15380 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2026-05-09T13:39:54.303-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:54.303-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:54.485-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:54.502-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:54.603-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:54.604-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:54.605-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:54.616-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 311 ms
+2026-05-09T13:39:54.666-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:54.689-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:54.691-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-05-09T13:39:54.706-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ce48eed
+2026-05-09T13:39:54.707-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-05-09T13:39:54.709-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:54.709-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:54.761-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:54.776-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:54.925-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:54.970-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7f8750b2-d053-491f-b838-b0d5a1a814bb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:54.972-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:55.075-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:55.157-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:55.159-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.874 seconds (process running for 140.713)
+2026-05-09T13:39:55.160-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:39:56.527-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:39:56.529-04:00  INFO 15380 --- [Thread-33] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:39:56.534-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:39:56.535-04:00  INFO 15380 --- [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:56.536-04:00  INFO 15380 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-05-09T13:39:56.538-04:00  INFO 15380 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2026-05-09T13:39:56.606-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:39:56.606-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:39:56.719-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:39:56.732-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:39:56.866-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:39:56.867-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:39:56.868-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:39:56.901-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 294 ms
+2026-05-09T13:39:56.996-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:39:57.023-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:39:57.024-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-05-09T13:39:57.049-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a0803e2
+2026-05-09T13:39:57.051-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-05-09T13:39:57.053-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:39:57.055-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:39:57.128-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:39:57.154-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:39:57.401-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:39:57.468-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 558d728a-34dc-4f67-894e-a4f089ce1e4a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:39:57.469-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:39:57.628-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:39:57.746-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:39:57.749-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 1.156 seconds (process running for 143.303)
+2026-05-09T13:39:57.751-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:40:00.117-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:40:00.118-04:00  INFO 15380 --- [Thread-37] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:40:00.124-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:40:00.126-04:00  INFO 15380 --- [Thread-37] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:00.126-04:00  INFO 15380 --- [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2026-05-09T13:40:00.129-04:00  INFO 15380 --- [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2026-05-09T13:40:00.197-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:40:00.197-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:40:00.333-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:40:00.345-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:40:00.421-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:40:00.422-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:40:00.423-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:40:00.440-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 242 ms
+2026-05-09T13:40:00.489-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:40:00.504-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:40:00.505-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2026-05-09T13:40:00.520-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7dfa2416
+2026-05-09T13:40:00.521-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2026-05-09T13:40:00.522-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:40:00.523-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:40:00.563-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:40:00.581-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:00.689-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:40:00.747-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6c01704b-10a9-4e88-9fb9-f17bef5e7b6e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:40:00.748-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:40:00.865-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:40:00.936-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:40:00.938-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.76 seconds (process running for 146.493)
+2026-05-09T13:40:00.940-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:40:02.719-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:40:02.720-04:00  INFO 15380 --- [Thread-41] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:40:02.727-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:40:02.729-04:00  INFO 15380 --- [Thread-41] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:02.729-04:00  INFO 15380 --- [Thread-41] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2026-05-09T13:40:02.733-04:00  INFO 15380 --- [Thread-41] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2026-05-09T13:40:02.810-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:40:02.810-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:40:02.916-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:40:02.930-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:40:03.007-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:40:03.008-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:40:03.009-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:40:03.021-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 209 ms
+2026-05-09T13:40:03.067-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:40:03.082-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:40:03.083-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2026-05-09T13:40:03.100-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16223374
+2026-05-09T13:40:03.100-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2026-05-09T13:40:03.102-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:40:03.103-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:40:03.142-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:40:03.156-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:03.285-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:40:03.324-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 848941a5-4f58-4efc-9a44-b14f42ccf1b8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:40:03.325-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:40:03.435-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:40:03.512-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:40:03.515-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.723 seconds (process running for 149.069)
+2026-05-09T13:40:03.517-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:40:04.886-04:00  INFO 15380 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:40:04.888-04:00  INFO 15380 --- [Thread-45] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:40:04.893-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:40:04.895-04:00  INFO 15380 --- [Thread-45] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:04.896-04:00  INFO 15380 --- [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2026-05-09T13:40:04.898-04:00  INFO 15380 --- [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2026-05-09T13:40:04.973-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 15380 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:40:04.973-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:40:05.074-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:40:05.086-04:00  INFO 15380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:40:05.151-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:40:05.151-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:40:05.152-04:00  INFO 15380 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:40:05.163-04:00  INFO 15380 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 189 ms
+2026-05-09T13:40:05.206-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:40:05.221-04:00  INFO 15380 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:40:05.222-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2026-05-09T13:40:05.233-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@751f969a
+2026-05-09T13:40:05.233-04:00  INFO 15380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2026-05-09T13:40:05.234-04:00  WARN 15380 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:40:05.235-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:40:05.272-04:00  INFO 15380 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:40:05.284-04:00  INFO 15380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:40:05.391-04:00  WARN 15380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:40:05.422-04:00  WARN 15380 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c2961352-41ab-482f-95c5-530d2026add4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:40:05.423-04:00  INFO 15380 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:40:05.504-04:00  WARN 15380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:40:05.563-04:00  INFO 15380 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:40:05.564-04:00  INFO 15380 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.608 seconds (process running for 151.119)
+2026-05-09T13:40:05.565-04:00  INFO 15380 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:40:47.814-04:00  INFO 15380 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T13:40:47.815-04:00  INFO 15380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T13:40:47.817-04:00  INFO 15380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-05-09T13:40:47.830-04:00  WARN 15380 --- [http-nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/auth/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T13:40:48.019-04:00  WARN 15380 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:40:50.986-04:00  WARN 15380 --- [http-nio-8080-exec-3] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:40:51.894-04:00  WARN 15380 --- [http-nio-8080-exec-4] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:40:59.766-04:00  WARN 15380 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:01.928-04:00  WARN 15380 --- [http-nio-8080-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:02.112-04:00  WARN 15380 --- [http-nio-8080-exec-7] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:09.610-04:00  WARN 15380 --- [http-nio-8080-exec-8] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:18.897-04:00  WARN 15380 --- [http-nio-8080-exec-9] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:21.066-04:00  WARN 15380 --- [http-nio-8080-exec-10] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:21.232-04:00  WARN 15380 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:47.033-04:00  WARN 15380 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:41:58.687-04:00  WARN 15380 --- [http-nio-8080-exec-3] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:21.712-04:00  WARN 15380 --- [http-nio-8080-exec-4] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:28.736-04:00  WARN 15380 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:29.313-04:00  WARN 15380 --- [http-nio-8080-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:29.503-04:00  WARN 15380 --- [http-nio-8080-exec-7] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:29.671-04:00  WARN 15380 --- [http-nio-8080-exec-8] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:30.014-04:00  WARN 15380 --- [http-nio-8080-exec-9] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:30.673-04:00  WARN 15380 --- [http-nio-8080-exec-10] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:30.888-04:00  WARN 15380 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:31.095-04:00  WARN 15380 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:31.304-04:00  WARN 15380 --- [http-nio-8080-exec-3] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:31.520-04:00  WARN 15380 --- [http-nio-8080-exec-4] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:31.704-04:00  WARN 15380 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:31.954-04:00  WARN 15380 --- [http-nio-8080-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:42:45.353-04:00  WARN 15380 --- [http-nio-8080-exec-7] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:43:53.882-04:00  WARN 15380 --- [http-nio-8080-exec-9] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:44:35.199-04:00  WARN 15380 --- [http-nio-8080-exec-10] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:44:40.337-04:00  WARN 15380 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2026-05-09T13:45:23.147-04:00  INFO 15380 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:45:23.152-04:00  INFO 15380 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:45:23.164-04:00  INFO 15380 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:45:23.165-04:00  INFO 15380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2026-05-09T13:45:23.166-04:00  INFO 15380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2026-05-09T13:45:33.435-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:45:33.436-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:45:33.470-04:00  INFO 4964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-09T13:45:33.471-04:00  INFO 4964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-09T13:45:33.897-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:45:33.937-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:45:34.277-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:45:34.286-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:45:34.287-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:45:34.311-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 839 ms
+2026-05-09T13:45:34.443-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:45:34.468-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-05-09T13:45:34.697-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:45:34.713-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T13:45:34.920-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72c5c208
+2026-05-09T13:45:34.921-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T13:45:34.950-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:45:34.963-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:45:35.540-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:45:35.579-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:45:35.632-04:00  INFO 4964 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09T13:45:36.047-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:45:36.126-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9109cd85-39c0-4b97-8cf9-8fc463f4f1c9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:45:36.132-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:45:36.351-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:45:36.486-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:45:36.490-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 3.362 seconds (process running for 3.631)
+2026-05-09T13:45:41.429-04:00  INFO 4964 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T13:45:41.430-04:00  INFO 4964 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T13:45:41.431-04:00  INFO 4964 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-09T13:45:41.443-04:00  WARN 4964 --- [http-nio-8080-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/auth/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T13:45:41.609-04:00  WARN 4964 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:45:42.806-04:00  WARN 4964 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:46:43.241-04:00  WARN 4964 --- [http-nio-8080-exec-7] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:50:34.398-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:50:34.402-04:00  INFO 4964 --- [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:50:34.406-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:50:34.409-04:00  INFO 4964 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:34.411-04:00  INFO 4964 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-09T13:50:34.415-04:00  INFO 4964 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-09T13:50:34.492-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:50:34.492-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:50:34.620-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:50:34.637-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:50:34.726-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:50:34.728-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:50:34.728-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:50:34.738-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 244 ms
+2026-05-09T13:50:34.780-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:50:34.791-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:50:34.793-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-05-09T13:50:34.803-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6506d720
+2026-05-09T13:50:34.804-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-05-09T13:50:34.805-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:50:34.806-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:50:34.870-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:50:34.880-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:34.968-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:50:34.997-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 47bf64a5-a8f4-4642-b3aa-3985b82e16c1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:50:34.998-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:50:35.069-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:50:35.124-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:50:35.126-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.653 seconds (process running for 302.266)
+2026-05-09T13:50:35.128-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:50:36.510-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:50:36.511-04:00  INFO 4964 --- [Thread-5] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:50:36.514-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:50:36.516-04:00  INFO 4964 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:36.517-04:00  INFO 4964 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-05-09T13:50:36.518-04:00  INFO 4964 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-05-09T13:50:36.591-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:50:36.591-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:50:36.683-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:50:36.694-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:50:36.755-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:50:36.755-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:50:36.756-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:50:36.766-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 173 ms
+2026-05-09T13:50:36.802-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:50:36.813-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:50:36.814-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-05-09T13:50:36.823-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e19da9b
+2026-05-09T13:50:36.824-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-05-09T13:50:36.826-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:50:36.827-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:50:36.891-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:50:36.903-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:36.999-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:50:37.031-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1a1c6be7-56e0-476a-b94d-df3e83f7f21c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:50:37.031-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:50:37.100-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:50:37.155-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:50:37.156-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.58 seconds (process running for 304.297)
+2026-05-09T13:50:37.157-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:50:45.966-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:50:45.968-04:00  INFO 4964 --- [Thread-9] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:50:45.974-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:50:45.976-04:00  INFO 4964 --- [Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:45.977-04:00  INFO 4964 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-05-09T13:50:45.979-04:00  INFO 4964 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-05-09T13:50:46.047-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:50:46.047-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:50:46.124-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:50:46.134-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:50:46.185-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:50:46.185-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:50:46.185-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:50:46.197-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 149 ms
+2026-05-09T13:50:46.230-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:50:46.241-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:50:46.242-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-05-09T13:50:46.251-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75f149e6
+2026-05-09T13:50:46.252-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-05-09T13:50:46.253-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:50:46.253-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:50:46.309-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:50:46.319-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:46.393-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:50:46.417-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d3d3bea5-0ac3-4cfa-b096-daac28815cf3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:50:46.418-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:50:46.478-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:50:46.532-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:50:46.534-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.499 seconds (process running for 313.674)
+2026-05-09T13:50:46.534-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:50:47.915-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:50:47.916-04:00  INFO 4964 --- [Thread-13] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:50:47.923-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:50:47.924-04:00  INFO 4964 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:47.925-04:00  INFO 4964 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-05-09T13:50:47.928-04:00  INFO 4964 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-05-09T13:50:47.989-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:50:47.990-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:50:48.068-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:50:48.079-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:50:48.133-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:50:48.133-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:50:48.134-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:50:48.143-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 152 ms
+2026-05-09T13:50:48.176-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:50:48.186-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:50:48.186-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-05-09T13:50:48.196-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6acb796d
+2026-05-09T13:50:48.197-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-05-09T13:50:48.197-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:50:48.197-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:50:48.246-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:50:48.255-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:50:48.326-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:50:48.352-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4874f523-301d-4b53-8c79-5721a0c7dd3d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:50:48.352-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:50:48.416-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:50:48.464-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:50:48.466-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.491 seconds (process running for 315.607)
+2026-05-09T13:50:48.467-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:51:38.332-04:00  INFO 4964 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T13:51:38.332-04:00  INFO 4964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T13:51:38.333-04:00  INFO 4964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-05-09T13:51:38.334-04:00  WARN 4964 --- [http-nio-8080-exec-5] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/todos/upcoming' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T13:51:38.338-04:00  WARN 4964 --- [http-nio-8080-exec-3] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:38.338-04:00  WARN 4964 --- [http-nio-8080-exec-10] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:38.338-04:00  WARN 4964 --- [http-nio-8080-exec-1] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:38.338-04:00  WARN 4964 --- [http-nio-8080-exec-5] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:44.870-04:00  WARN 4964 --- [http-nio-8080-exec-7] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:44.870-04:00  WARN 4964 --- [http-nio-8080-exec-6] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:44.870-04:00  WARN 4964 --- [http-nio-8080-exec-4] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:44.871-04:00  WARN 4964 --- [http-nio-8080-exec-9] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.437-04:00  WARN 4964 --- [http-nio-8080-exec-8] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.437-04:00  WARN 4964 --- [http-nio-8080-exec-3] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.437-04:00  WARN 4964 --- [http-nio-8080-exec-5] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.438-04:00  WARN 4964 --- [http-nio-8080-exec-2] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.817-04:00  WARN 4964 --- [http-nio-8080-exec-4] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.817-04:00  WARN 4964 --- [http-nio-8080-exec-10] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.817-04:00  WARN 4964 --- [http-nio-8080-exec-6] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:45.818-04:00  WARN 4964 --- [http-nio-8080-exec-1] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.037-04:00  WARN 4964 --- [http-nio-8080-exec-9] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.037-04:00  WARN 4964 --- [http-nio-8080-exec-7] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.037-04:00  WARN 4964 --- [http-nio-8080-exec-8] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.037-04:00  WARN 4964 --- [http-nio-8080-exec-5] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.239-04:00  WARN 4964 --- [http-nio-8080-exec-3] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.240-04:00  WARN 4964 --- [http-nio-8080-exec-1] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.240-04:00  WARN 4964 --- [http-nio-8080-exec-2] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.240-04:00  WARN 4964 --- [http-nio-8080-exec-4] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.462-04:00  WARN 4964 --- [http-nio-8080-exec-6] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.462-04:00  WARN 4964 --- [http-nio-8080-exec-10] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.463-04:00  WARN 4964 --- [http-nio-8080-exec-5] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.463-04:00  WARN 4964 --- [http-nio-8080-exec-7] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.999-04:00  WARN 4964 --- [http-nio-8080-exec-9] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:46.999-04:00  WARN 4964 --- [http-nio-8080-exec-8] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:47.000-04:00  WARN 4964 --- [http-nio-8080-exec-3] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:51:47.002-04:00  WARN 4964 --- [http-nio-8080-exec-1] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:52:11.070-04:00  WARN 4964 --- [http-nio-8080-exec-4] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:52:11.072-04:00  WARN 4964 --- [http-nio-8080-exec-10] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:52:11.072-04:00  WARN 4964 --- [http-nio-8080-exec-2] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:52:11.072-04:00  WARN 4964 --- [http-nio-8080-exec-6] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:53:00.234-04:00  WARN 4964 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T13:53:52.469-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:53:52.471-04:00  INFO 4964 --- [Thread-17] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:53:52.476-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:53:52.477-04:00  INFO 4964 --- [Thread-17] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:52.478-04:00  INFO 4964 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-05-09T13:53:52.480-04:00  INFO 4964 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2026-05-09T13:53:52.546-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:53:52.546-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:53:52.644-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:53:52.662-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:53:52.715-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:53:52.716-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:53:52.717-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:53:52.727-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 180 ms
+2026-05-09T13:53:52.761-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:53:52.773-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:53:52.774-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-05-09T13:53:52.784-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@768f8ab2
+2026-05-09T13:53:52.784-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-05-09T13:53:52.785-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:53:52.787-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:53:52.841-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:53:52.852-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:52.927-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:53:52.950-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e4d057d2-e37b-4da6-9ffa-c03b918a976b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:53:52.951-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:53:53.042-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:53:53.108-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:53:53.109-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.578 seconds (process running for 500.249)
+2026-05-09T13:53:53.109-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:53:54.489-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:53:54.490-04:00  INFO 4964 --- [Thread-21] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:53:54.494-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:53:54.495-04:00  INFO 4964 --- [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:54.496-04:00  INFO 4964 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-05-09T13:53:54.497-04:00  INFO 4964 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2026-05-09T13:53:54.569-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:53:54.570-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:53:54.656-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:53:54.666-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:53:54.728-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:53:54.728-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:53:54.730-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:53:54.739-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 168 ms
+2026-05-09T13:53:54.776-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:53:54.788-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:53:54.789-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-05-09T13:53:54.798-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15f3dd4a
+2026-05-09T13:53:54.798-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-05-09T13:53:54.799-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:53:54.800-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:53:54.848-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:53:54.859-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:54.931-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:53:54.957-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: fbba5e2d-20ab-42a3-8154-bb2a779879ed
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:53:54.958-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:53:55.037-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:53:55.097-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:53:55.098-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.551 seconds (process running for 502.238)
+2026-05-09T13:53:55.098-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:53:56.472-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:53:56.474-04:00  INFO 4964 --- [Thread-25] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:53:56.480-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:53:56.482-04:00  INFO 4964 --- [Thread-25] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:56.482-04:00  INFO 4964 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-05-09T13:53:56.485-04:00  INFO 4964 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2026-05-09T13:53:56.549-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:53:56.549-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:53:56.627-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:53:56.638-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:53:56.688-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:53:56.689-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:53:56.689-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:53:56.698-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 148 ms
+2026-05-09T13:53:56.730-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:53:56.742-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:53:56.742-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-05-09T13:53:56.752-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@795bfe0f
+2026-05-09T13:53:56.752-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-05-09T13:53:56.753-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:53:56.754-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:53:56.806-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:53:56.815-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:53:56.890-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:53:56.917-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cc8fd1bc-0ec4-4f62-9a10-9f5b11092282
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:53:56.918-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:53:56.982-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:53:57.033-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:53:57.035-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.5 seconds (process running for 504.175)
+2026-05-09T13:53:57.035-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:54:01.827-04:00  INFO 4964 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-09T13:54:01.828-04:00  INFO 4964 --- [Thread-29] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:54:01.835-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:54:01.836-04:00  INFO 4964 --- [Thread-29] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:54:01.837-04:00  INFO 4964 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-05-09T13:54:01.839-04:00  INFO 4964 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2026-05-09T13:54:01.899-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 4964 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:54:01.899-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:54:01.975-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:54:01.983-04:00  INFO 4964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:54:02.037-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:54:02.038-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:54:02.038-04:00  INFO 4964 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:54:02.047-04:00  INFO 4964 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 147 ms
+2026-05-09T13:54:02.078-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:54:02.089-04:00  INFO 4964 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:54:02.090-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-05-09T13:54:02.099-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1cbb6bb8
+2026-05-09T13:54:02.099-04:00  INFO 4964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-05-09T13:54:02.101-04:00  WARN 4964 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:54:02.101-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:54:02.147-04:00  INFO 4964 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:54:02.157-04:00  INFO 4964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:54:02.228-04:00  WARN 4964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:54:02.253-04:00  WARN 4964 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 695e92d0-d335-4685-9a97-6585889a3f57
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:54:02.254-04:00  INFO 4964 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:54:02.313-04:00  WARN 4964 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:54:02.363-04:00  INFO 4964 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:54:02.364-04:00  INFO 4964 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 0.479 seconds (process running for 509.505)
+2026-05-09T13:54:02.366-04:00  INFO 4964 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-09T13:54:07.861-04:00  INFO 4964 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T13:54:07.861-04:00  INFO 4964 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T13:54:07.863-04:00  INFO 4964 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-05-09T13:54:07.864-04:00  WARN 4964 --- [http-nio-8080-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/todos/overdue' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T13:54:07.868-04:00  WARN 4964 --- [http-nio-8080-exec-7] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:54:07.868-04:00  WARN 4964 --- [http-nio-8080-exec-4] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:54:07.868-04:00  WARN 4964 --- [http-nio-8080-exec-1] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:54:07.868-04:00  WARN 4964 --- [http-nio-8080-exec-2] com.tp.todolist.security.JwtUtil         : Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09T13:54:10.509-04:00  INFO 4964 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T13:54:10.516-04:00  INFO 4964 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T13:54:10.547-04:00  INFO 4964 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:54:10.549-04:00  INFO 4964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-05-09T13:54:10.551-04:00  INFO 4964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2026-05-09T13:54:18.914-04:00  INFO 20224 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 20224 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T13:54:18.916-04:00  INFO 20224 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T13:54:18.945-04:00  INFO 20224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-09T13:54:18.946-04:00  INFO 20224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-09T13:54:19.355-04:00  INFO 20224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T13:54:19.394-04:00  INFO 20224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+2026-05-09T13:54:19.746-04:00  INFO 20224 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T13:54:19.754-04:00  INFO 20224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T13:54:19.755-04:00  INFO 20224 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T13:54:19.778-04:00  INFO 20224 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 832 ms
+2026-05-09T13:54:19.904-04:00  INFO 20224 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T13:54:19.930-04:00  INFO 20224 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-05-09T13:54:20.165-04:00  INFO 20224 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T13:54:20.182-04:00  INFO 20224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T13:54:20.383-04:00  INFO 20224 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42f9ff41
+2026-05-09T13:54:20.384-04:00  INFO 20224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T13:54:20.416-04:00  WARN 20224 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T13:54:20.428-04:00  INFO 20224 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T13:54:21.024-04:00  INFO 20224 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T13:54:21.068-04:00  INFO 20224 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T13:54:21.118-04:00  INFO 20224 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09T13:54:21.546-04:00  WARN 20224 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T13:54:21.611-04:00  WARN 20224 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6ba6908f-ce7c-47d3-b672-a734f094eae0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T13:54:21.618-04:00  INFO 20224 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T13:54:21.835-04:00  WARN 20224 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T13:54:21.976-04:00  INFO 20224 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T13:54:21.982-04:00  INFO 20224 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 3.326 seconds (process running for 3.592)
+2026-05-09T13:54:27.515-04:00  INFO 20224 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T13:54:27.516-04:00  INFO 20224 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T13:54:27.518-04:00  INFO 20224 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-09T13:54:27.530-04:00  WARN 20224 --- [http-nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/auth/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T13:54:27.723-04:00  WARN 20224 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-05-09T15:43:40.542-04:00  INFO 20224 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T15:43:40.565-04:00  INFO 20224 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T15:43:40.573-04:00  INFO 20224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T15:43:40.585-04:00  INFO 20224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-09T15:43:40.588-04:00  INFO 20224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

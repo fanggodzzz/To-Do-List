@@ -3,6 +3,7 @@ package com.tp.todolist.security;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,10 +30,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String header = request.getHeader("Authorization");
 
+        System.out.println();
+        System.out.println("Token check");
+        System.out.println();
+
         if (header != null && header.startsWith("Bearer ")) {
             String token = header.substring(7);
+            String validationError = jwtUtil.getTokenValidationError(token);
 
-            if (jwtUtil.validateToken(token) && SecurityContextHolder.getContext().getAuthentication() == null) {
+            if (validationError != null) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                response.getWriter().write("{\"error\":\"" + validationError + "\"}");
+                return;
+            }
+
+            if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserJWT user = jwtUtil.extractUser(token);
                 String role = normalizeRole(user.getRole());
 

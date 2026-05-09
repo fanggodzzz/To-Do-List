@@ -5,7 +5,7 @@
  *   "render" = Production (https://to-do-list-eki9.onrender.com/api/todos)
  */
 
-const ACTIVE_SERVER = "render"; // Change this to "localhost" or "render"
+const ACTIVE_SERVER = "localhost"; // Change this to "localhost" or "render"
 const AUTH_TOKEN_KEY = "todoAuthToken";
 
 const SERVERS = {
@@ -42,7 +42,7 @@ function apiUrl(path) {
  */
 function buildAuthHeaders(extraHeaders = {}) {
   const headers = { ...extraHeaders };
-  const token = localStorage.getItem(AUTH_TOKEN_KEY);
+  const token = getAuthToken();
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
@@ -50,10 +50,33 @@ function buildAuthHeaders(extraHeaders = {}) {
 }
 
 /**
+ * Check whether the JWT has expired based on its exp claim
+ */
+function isTokenExpired(token) {
+  const payload = decodeJwtPayload(token);
+  if (!payload || !payload.exp) {
+    return true;
+  }
+
+  const expiresAtMs = payload.exp * 1000;
+  return Date.now() >= expiresAtMs;
+}
+
+/**
  * Check if user has a valid auth token
  */
 function hasAuthToken() {
-  return Boolean(localStorage.getItem(AUTH_TOKEN_KEY));
+  const token = localStorage.getItem(AUTH_TOKEN_KEY);
+  if (!token) {
+    return false;
+  }
+
+  if (isTokenExpired(token)) {
+    clearAuthToken();
+    return false;
+  }
+
+  return true;
 }
 
 /**
@@ -67,7 +90,17 @@ function storeAuthToken(token) {
  * Get auth token
  */
 function getAuthToken() {
-  return localStorage.getItem(AUTH_TOKEN_KEY);
+  const token = localStorage.getItem(AUTH_TOKEN_KEY);
+  if (!token) {
+    return null;
+  }
+
+  if (isTokenExpired(token)) {
+    clearAuthToken();
+    return null;
+  }
+
+  return token;
 }
 
 /**
@@ -87,6 +120,17 @@ function bootstrapAuthTokenFromUrl() {
 
   if (!token) {
     console.log("[Auth] No token param in URL");
+    return;
+  }
+
+  if (isTokenExpired(token)) {
+    console.warn("[Auth] Ignoring expired token from URL");
+    url.searchParams.delete("token");
+    window.history.replaceState(
+      {},
+      "",
+      `${url.pathname}${url.search}${url.hash}`,
+    );
     return;
   }
 
