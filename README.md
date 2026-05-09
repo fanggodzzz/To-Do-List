@@ -233,8 +233,8 @@ This project is open source.
 
 ## 👨‍💻 Author
 
-Created as a portfolio project for career preparation.
+Nguyen Hoang Thanh PHAN
 
 ---
 
-**Last Updated:** April 2026
+**Last Updated:** May 2026
