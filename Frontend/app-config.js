@@ -5,7 +5,7 @@
  *   "render" = Production (https://to-do-list-eki9.onrender.com/api/todos)
  */
 
-const ACTIVE_SERVER = "localhost"; // Change this to "localhost" or "render"
+const ACTIVE_SERVER = "render"; // Change this to "localhost" or "render"
 const AUTH_TOKEN_KEY = "todoAuthToken";
 
 const SERVERS = {
