@@ -39,8 +39,16 @@ public class JwtUtil {
     }
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(
-                secret.getBytes(StandardCharsets.UTF_8));
+        // The secret is stored as Base64 when generated. When reading the
+        // secret, try to decode Base64 first; if that fails, fall back to
+        // the raw UTF-8 bytes (for backwards compatibility).
+        byte[] keyBytes;
+        try {
+            keyBytes = Base64.getDecoder().decode(secret);
+        } catch (IllegalArgumentException ex) {
+            keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+        }
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     // Generate token
