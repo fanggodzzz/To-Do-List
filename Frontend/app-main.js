@@ -1,71 +1,12 @@
-const DEFAULT_API_BASE = "https://to-do-list-eki9.onrender.com/api/todos";
-const AUTH_TOKEN_STORAGE_KEY = "todoAuthToken";
-
-function normalizeApiBase(value) {
-  if (!value) {
-    return DEFAULT_API_BASE;
-  }
-  const normalized = value.replace(/\/api\/todo?s?$/, "/api/todos");
-  if (normalized === "http://localhost:8080/api/todos") {
-    return DEFAULT_API_BASE;
-  }
-  return normalized;
-}
-
-const API = normalizeApiBase(
-  localStorage.getItem("todoApiBase") || DEFAULT_API_BASE,
-);
-
-function bootstrapAuthTokenFromUrl() {
-  const url = new URL(window.location.href);
-  const token = url.searchParams.get("token");
-
-  if (!token) {
-    return;
-  }
-
-  localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
-  url.searchParams.delete("token");
-  window.history.replaceState(
-    {},
-    "",
-    `${url.pathname}${url.search}${url.hash}`,
-  );
-}
-
-function apiUrl(path) {
-  return `${API}${path}`;
-}
-
-function buildAuthHeaders(extraHeaders = {}) {
-  const headers = { ...extraHeaders };
-  const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-  return headers;
-}
-
-function hasAuthToken() {
-  return Boolean(localStorage.getItem(AUTH_TOKEN_STORAGE_KEY));
-}
-
-function decodeJwtPayload(token) {
-  try {
-    const payload = token.split(".")[1];
-    if (!payload) return null;
-    const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
-    const padded = normalized + "=".repeat((4 - (normalized.length % 4)) % 4);
-    return JSON.parse(atob(padded));
-  } catch {
-    return null;
-  }
-}
+// Configuration is centralized in app-config.js
+// Functions: getApiBase(), getServerMode(), switchServer(), apiUrl(), buildAuthHeaders(),
+//            hasAuthToken(), storeAuthToken(), getAuthToken(), clearAuthToken(),
+//            bootstrapAuthTokenFromUrl(), decodeJwtPayload(), getUserFromToken()
 
 function updateAuthChip() {
   const chip = document.getElementById("authSessionChip");
   if (!chip) return;
-  const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
+  const token = getAuthToken();
   if (!token) {
     chip.textContent = "Not signed in";
     return;
@@ -927,8 +868,10 @@ function saveTask() {
 }
 
 function logout() {
-  localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
-  window.location.href = "welcome.html";
+  console.log("[App] User logout triggered");
+  clearAuthToken();
+  console.log("[App] Token cleared, redirecting to index.html");
+  window.location.href = "index.html";
 }
 
 function deleteTask() {
@@ -947,10 +890,17 @@ function closeAllDrawers() {
 }
 
 // Check auth and redirect if needed
+console.log("[App] main.html loading...");
 bootstrapAuthTokenFromUrl();
 
-if (!hasAuthToken()) {
-  window.location.href = "welcome.html";
+const hasToken = hasAuthToken();
+console.log("[App] Token check:", hasToken ? "✓ Found" : "✗ NOT found");
+
+if (!hasToken) {
+  console.log("[App] No token detected, redirecting to index.html");
+  window.location.href = "index.html";
+} else {
+  console.log("[App] Token valid, initializing app");
 }
 
 // Event listeners

@@ -1,53 +1,5 @@
-const DEFAULT_API_BASE = "https://to-do-list-eki9.onrender.com/api/todos";
-
-function normalizeApiBase(value) {
-  if (!value) {
-    return DEFAULT_API_BASE;
-  }
-
-  const normalized = value.replace(/\/api\/todo?s?$/, "/api/todos");
-  if (normalized === "http://localhost:8080/api/todos") {
-    return DEFAULT_API_BASE;
-  }
-  return normalized;
-}
-
-const queryApiBase = new URLSearchParams(window.location.search).get("api");
-if (queryApiBase) {
-  localStorage.setItem("todoApiBase", normalizeApiBase(queryApiBase));
-}
-
-const storedApiBase = normalizeApiBase(localStorage.getItem("todoApiBase"));
-if (storedApiBase !== localStorage.getItem("todoApiBase")) {
-  localStorage.setItem("todoApiBase", storedApiBase);
-}
-
-const API = normalizeApiBase(queryApiBase || storedApiBase || DEFAULT_API_BASE);
-
-const AUTH_TOKEN_STORAGE_KEY = "todoAuthToken";
-const AUTH_API = API.replace(/\/api\/todos$/, "/api/auth");
-
-function apiUrl(path) {
-  return `${API}${path}`;
-}
-
-function authUrl(path) {
-  return `${AUTH_API}${path}`;
-}
-
-function buildAuthHeaders(extraHeaders = {}) {
-  const headers = { ...extraHeaders };
-  const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
-  return headers;
-}
-
-function hasAuthToken() {
-  return Boolean(localStorage.getItem(AUTH_TOKEN_STORAGE_KEY));
+// Configuration and utility functions are centralized in app-config.js
+// This file handles any page initialization that needs the config loaded
 }
 
 function decodeJwtPayload(token) {

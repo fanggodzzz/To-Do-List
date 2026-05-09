@@ -1,23 +1,8 @@
-const DEFAULT_API_BASE = "https://to-do-list-eki9.onrender.com/api/todos";
-const AUTH_TOKEN_STORAGE_KEY = "todoAuthToken";
-
-function normalizeApiBase(value) {
-  if (!value) {
-    return DEFAULT_API_BASE;
-  }
-  const normalized = value.replace(/\/api\/todo?s?$/, "/api/todos");
-  if (normalized === "http://localhost:8080/api/todos") {
-    return DEFAULT_API_BASE;
-  }
-  return normalized;
-}
-
-const API = normalizeApiBase(
-  localStorage.getItem("todoApiBase") || DEFAULT_API_BASE,
-);
-const AUTH_API = API.replace(/\/api\/todos$/, "/api/auth");
+// Configuration is centralized in app-config.js
 
 function authUrl(path) {
+  const apiBase = getApiBase();
+  const AUTH_API = apiBase.replace(/\/api\/todos$/, "/api/auth");
   return `${AUTH_API}${path}`;
 }
 
@@ -26,12 +11,6 @@ function setAuthStatus(message, isError = false) {
   if (!authStatus) return;
   authStatus.textContent = message;
   authStatus.classList.toggle("auth-status--error", isError);
-}
-
-function storeAuthToken(token) {
-  if (token) {
-    localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
-  }
 }
 
 function registerAccount(userName, userEmail, userPassword) {
@@ -47,6 +26,7 @@ function registerAccount(userName, userEmail, userPassword) {
       if (!res.ok) {
         throw new Error(text || "Unable to register");
       }
+      console.log("[Register] Registration successful, logging in...");
       setAuthStatus(text || "Account created. Logging in...");
       // After registration, log in automatically
       return loginWithCredentials(userName, userPassword);
@@ -70,11 +50,24 @@ function loginWithCredentials(userName, userPassword) {
       if (!res.ok) {
         throw new Error(text || "Unable to log in");
       }
+      console.log(
+        "[Register] Login successful after registration, storing token...",
+      );
       storeAuthToken(text);
+
+      // Verify token was stored
+      if (!getAuthToken()) {
+        throw new Error(
+          "Failed to store authentication token. Please try again.",
+        );
+      }
+      console.log("[Register] Token stored successfully");
+
       setAuthStatus("Account created and logged in. Redirecting...");
       setTimeout(() => {
         const nextUrl = new URL("main.html", window.location.href);
         nextUrl.searchParams.set("token", text);
+        console.log("[Register] Redirecting to:", nextUrl.toString());
         window.location.href = nextUrl.toString();
       }, 500);
       return text;
@@ -82,7 +75,8 @@ function loginWithCredentials(userName, userPassword) {
 }
 
 // If already logged in, redirect to main
-if (localStorage.getItem(AUTH_TOKEN_STORAGE_KEY)) {
+if (hasAuthToken()) {
+  console.log("[Register] User already logged in, redirecting to main.html");
   window.location.href = "main.html";
 }
 
