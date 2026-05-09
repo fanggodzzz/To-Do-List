@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -14,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tp.todolist.entity.ActivitiesEntity;
-import com.tp.todolist.entity.TagsEntity;
 import com.tp.todolist.service.ActivitiesService;
+import com.tp.todolist.dto.TagsDTO;
+import com.tp.todolist.dto.ActivitiesDTO;
+import com.tp.todolist.dto.UserJWT;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,64 +29,89 @@ import lombok.RequiredArgsConstructor;
 public class TodoController {
     private final ActivitiesService todoService;
 
-    // Todo endpoints
+    // --- Todo endpoints ---
+
     @GetMapping("/")
-    public List<ActivitiesEntity> getTodosByMonth(
+    public List<ActivitiesDTO> getByMonth(
             @RequestParam Long year,
-            @RequestParam Long month) {
-        return todoService.getByMonth(year, month);
+            @RequestParam Long month,
+            @AuthenticationPrincipal UserJWT user) {
+        return todoService.getByMonth(year, month, user.getUserId());
     }
 
     @PostMapping("/add")
-    public ResponseEntity<ActivitiesEntity> addTodo(
-            @RequestBody ActivitiesEntity todo) {
-        ActivitiesEntity createdTodo = todoService.createTask(
-                todo.getAc_due_date(),
-                todo.getAc_description(),
-                todo.getAc_completed(),
-                todo.getAc_tag_id() != null ? todo.getAc_tag_id().getTag_id() : null);
+    public ResponseEntity<ActivitiesDTO> addTodo(
+            @RequestBody ActivitiesDTO todo,
+            @AuthenticationPrincipal UserJWT user) {
+        ActivitiesDTO createdTodo = todoService.createTask(
+                user.getUserId(),
+                todo.getAcDueDate(),
+                todo.getAcDescription(),
+                todo.getAcCompleted(),
+                todo.getAcTagId());
+
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTodo);
     }
 
-    @PatchMapping("/update/{id}")
+    @PatchMapping("/update/")
     public ResponseEntity<Void> updateTodo(
-            @PathVariable Long id,
-            @RequestBody ActivitiesEntity todo) {
+            @RequestBody ActivitiesDTO todo,
+            @AuthenticationPrincipal UserJWT user) {
+        todoService.isOwner(user.getUserId(), todo.getAcId());
+
         todoService.updateTask(
-                id,
-                todo.getAc_description(),
-                todo.getAc_due_date(),
-                todo.getAc_completed(),
-                todo.getAc_tag_id() != null ? todo.getAc_tag_id().getTag_id() : null);
+                todo.getAcId(),
+                todo.getAcDescription(),
+                todo.getAcDueDate(),
+                todo.getAcCompleted(),
+                todo.getAcTagId());
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteTodo(
-            @PathVariable Long id) {
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserJWT user) {
+        todoService.isOwner(user.getUserId(), id);
+
         todoService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }
 
-    // Tag endpoints
+    @GetMapping("/upcoming")
+    public List<ActivitiesDTO> getUpcomingActivities(
+            @AuthenticationPrincipal UserJWT user) {
+        return todoService.getUpcomingActivities(user.getUserId());
+    }
+
+    @GetMapping("/overdue")
+    public List<ActivitiesDTO> getOverdueActivities(
+            @AuthenticationPrincipal UserJWT user) {
+        return todoService.getOverdueActivities(user.getUserId());
+    }
+
+    // --- Tag endpoints ---
+
     @GetMapping("/tags")
-    public List<TagsEntity> getAllTags() {
+    public List<TagsDTO> getAllTags() {
         return todoService.getAllTags();
     }
 
     @GetMapping("/tags/{id}")
-    public ResponseEntity<TagsEntity> getTagById(
+    public ResponseEntity<TagsDTO> getTagById(
             @PathVariable Long id) {
         return ResponseEntity.ok(todoService.getTagById(id));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/tags/add")
-    public ResponseEntity<TagsEntity> addTag(
-            @RequestBody TagsEntity tag) {
-        TagsEntity createdTag = todoService.addTag(tag.getTag_name());
+    public ResponseEntity<TagsDTO> addTag(
+            @RequestBody TagsDTO tag) {
+        TagsDTO createdTag = todoService.addTag(tag.getTagName());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTag);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/tags/delete/{id}")
     public ResponseEntity<Void> deleteTag(
             @PathVariable Long id) {
@@ -91,24 +119,11 @@ public class TodoController {
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping("/tags/update/{id}")
-    public ResponseEntity<TagsEntity> updateTag(
-            @PathVariable Long id,
-            @RequestBody TagsEntity tag) {
-        return ResponseEntity.ok(todoService.updateTag(id, tag.getTag_name()));
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/tags/update/")
+    public ResponseEntity<TagsDTO> updateTag(
+            @RequestBody TagsDTO tag) {
+        return ResponseEntity.ok(todoService.updateTag(tag.getTagId(), tag.getTagName()));
     }
 
-    // Upcoming activities endpoint
-    @GetMapping("/upcoming")
-    public List<ActivitiesEntity> getUpcomingActivities() {
-        System.out.println("Received request for upcoming activities");
-        return todoService.getUpcomingActivities();
-    }
-
-    // Overdue activities endpoint
-    @GetMapping("/overdue")
-    public List<ActivitiesEntity> getOverdueActivities() {
-        System.out.println("Received request for overdue activities");
-        return todoService.getOverdueActivities();
-    }
 }

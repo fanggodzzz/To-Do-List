@@ -1,37 +1,40 @@
 package com.tp.todolist.dto;
 
 public class AuthRequest {
-    private String user_email;
-    private String user_name;
-    private String user_password;
+    private String userEmail;
+    private String userName;
+    private String userPassword;
 
-    public AuthRequest(String user_email, String user_name, String user_password) {
-        this.user_email = user_email;
-        this.user_name = user_name;
-        this.user_password = user_password;
+    public AuthRequest() {
     }
 
-    public String getUser_email() {
-        return user_email;
+    public AuthRequest(String userEmail, String userName, String userPassword) {
+        this.userEmail = userEmail;
+        this.userName = userName;
+        this.userPassword = userPassword;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }

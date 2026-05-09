@@ -16,7 +16,7 @@ import com.tp.todolist.service.AuthService;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/auth")
-public class UserController {
+public class AuthController {
 
     private final AuthService authService;
 

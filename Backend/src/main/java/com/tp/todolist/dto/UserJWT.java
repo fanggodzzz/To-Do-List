@@ -1,25 +1,43 @@
 package com.tp.todolist.dto;
 
 public class UserJWT {
-    private Long id;
-    private String email;
-    private String username;
+    private Long userId;
+    private String userName;
+    private String userEmail;
+    private String userRole;
 
-    public UserJWT(Long id, String username, String email) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
+    public UserJWT(Long userId, String userName, String userEmail, String userRole) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userRole = userRole;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 
     public Long getId() {
-        return id;
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getUsername() {
+        return userName;
     }
 
     public String getEmail() {
-        return email;
+        return userEmail;
+    }
+
+    public String getRole() {
+        return userRole;
     }
 }

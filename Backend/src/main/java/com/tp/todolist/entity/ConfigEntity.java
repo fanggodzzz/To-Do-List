@@ -1,16 +1,12 @@
 package com.tp.todolist.entity;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,25 +17,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-public class UsersEntity {
+@Table(name = "config")
+public class ConfigEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @Column(nullable = false)
+    private Long config_id;
 
     @Column(nullable = false, unique = true)
-    private String user_name;
-
-    @Column(nullable = false, unique = true)
-    private String user_email;
+    private String config_name;
 
     @Column(nullable = false)
-    private String user_password;
-
-    @Column(nullable = false)
-    private String user_role;
-
-    @OneToMany(mappedBy = "ac_user_id")
-    @JsonIgnore
-    private List<ActivitiesEntity> activities;
+    private String config_value;
 }

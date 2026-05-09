@@ -30,4 +30,9 @@ public class UserService {
     public UsersEntity createUser(UsersEntity user) {
         return userRepository.save(user);
     }
+
+    public UsersEntity resolveUser(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
 }

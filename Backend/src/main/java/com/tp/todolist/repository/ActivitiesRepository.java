@@ -16,10 +16,15 @@ public interface ActivitiesRepository extends JpaRepository<ActivitiesEntity, Lo
     @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date BETWEEN :start AND :end")
     List<ActivitiesEntity> findByDueDateBetween(@Param("start") LocalDate start, @Param("end") LocalDate end);
 
-    @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date BETWEEN :start AND :end AND a.ac_completed = false")
-    List<ActivitiesEntity> findUpcoming(@Param("start") LocalDate start, @Param("end") LocalDate end);
+    @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date BETWEEN :start AND :end AND a.ac_user_id.user_id = :userId")
+    List<ActivitiesEntity> findByDueDateBetweenAndUserId(@Param("start") LocalDate start, @Param("end") LocalDate end,
+            @Param("userId") Long userId);
 
-    @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date < :today AND a.ac_completed = false")
-    List<ActivitiesEntity> findOverdue(@Param("today") LocalDate today);
+    @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date BETWEEN :start AND :end AND a.ac_completed = false AND a.ac_user_id.user_id = :userId")
+    List<ActivitiesEntity> findUpcomingAndUserId(@Param("start") LocalDate start, @Param("end") LocalDate end,
+            @Param("userId") Long userId);
+
+    @Query("SELECT a FROM ActivitiesEntity a WHERE a.ac_due_date < :today AND a.ac_completed = false AND a.ac_user_id.user_id = :userId")
+    List<ActivitiesEntity> findOverdueAndUserId(@Param("today") LocalDate today, @Param("userId") Long userId);
 
 }

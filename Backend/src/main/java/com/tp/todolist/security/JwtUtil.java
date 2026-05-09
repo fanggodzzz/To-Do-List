@@ -1,50 +1,59 @@
 package com.tp.todolist.security;
 
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Value;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
-
-import java.security.Key;
-import java.util.Date;
 
 import com.tp.todolist.dto.UserJWT;
 
 @Component
 public class JwtUtil {
 
-    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    @Value("${app.jwt.secret:change-me-to-a-32-byte-secret-key!!}")
+    private String secret;
 
-    // Token validity: 1 hour
-    private final long EXPIRATION_TIME = 1000 * 60 * 60;
+    @Value("${app.jwt.expiration-ms:3600000}")
+    private long expirationTime;
+
+    private Key getSigningKey() {
+        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
 
     // Generate token
-    public String generateToken(Long userId, String username, String email) {
+    public String generateToken(Long userId, String username, String email, String role) {
         return Jwts.builder()
                 .setSubject(String.valueOf(userId)) // store userId
                 .claim("username", username)
                 .claim("email", email)
+                .claim("role", role)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(key)
+                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
+                .signWith(getSigningKey())
                 .compact();
     }
 
     // Extract Authentication details from token
     public UserJWT extractUser(String token) {
         Claims claims = Jwts.parserBuilder()
-                .setSigningKey(key)
+                .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-        return new UserJWT(claims.get("id", Long.class), claims.get("username", String.class),
-                claims.get("email", String.class));
+        Long id = Long.valueOf(claims.getSubject());
+        return new UserJWT(id, claims.get("username", String.class), claims.get("email", String.class),
+                claims.get("role", String.class));
     }
 
     // Validate token
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
-                    .setSigningKey(key)
+                    .setSigningKey(getSigningKey())
                     .build()
                     .parseClaimsJws(token);
             return true;
