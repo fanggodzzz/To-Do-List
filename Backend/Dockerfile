@@ -1,5 +1,5 @@
 # Importing JDK and copying required files
-FROM openjdk:19-jdk AS build
+FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src src
