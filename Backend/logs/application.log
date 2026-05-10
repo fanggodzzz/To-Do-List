@@ -1686,3 +1686,51 @@ This generated password is for development use only. Your security configuration
 2026-05-09T15:43:40.573-04:00  INFO 20224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-09T15:43:40.585-04:00  INFO 20224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-05-09T15:43:40.588-04:00  INFO 20224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-09T20:58:10.940-04:00  INFO 1392 --- [restartedMain] com.tp.todolist.TodolistApplication      : Starting TodolistApplication using Java 25.0.2 with PID 1392 (D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend\target\classes started by thanh in D:\Thanh\Career Preparation\Fall 2026\Code\To-Do-List\Backend)
+2026-05-09T20:58:10.942-04:00  INFO 1392 --- [restartedMain] com.tp.todolist.TodolistApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T20:58:10.974-04:00  INFO 1392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-09T20:58:10.974-04:00  INFO 1392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-09T20:58:11.429-04:00  INFO 1392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T20:58:11.472-04:00  INFO 1392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 4 JPA repository interfaces.
+2026-05-09T20:58:11.858-04:00  INFO 1392 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-09T20:58:11.868-04:00  INFO 1392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T20:58:11.868-04:00  INFO 1392 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-05-09T20:58:11.897-04:00  INFO 1392 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 922 ms
+2026-05-09T20:58:12.042-04:00  INFO 1392 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09T20:58:12.083-04:00  INFO 1392 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-05-09T20:58:12.376-04:00  INFO 1392 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T20:58:12.401-04:00  INFO 1392 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T20:58:12.690-04:00  INFO 1392 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a5c3481
+2026-05-09T20:58:12.692-04:00  INFO 1392 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T20:58:12.734-04:00  WARN 1392 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T20:58:12.745-04:00  INFO 1392 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/to_do_list_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: to_do_list_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09T20:58:13.417-04:00  INFO 1392 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T20:58:13.477-04:00  INFO 1392 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T20:58:13.534-04:00  INFO 1392 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09T20:58:13.971-04:00  WARN 1392 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09T20:58:14.030-04:00  WARN 1392 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 90d71d27-d5f9-4455-89c3-9e585b962137
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-09T20:58:14.035-04:00  INFO 1392 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-09T20:58:14.240-04:00  WARN 1392 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-09T20:58:14.366-04:00  INFO 1392 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09T20:58:14.370-04:00  INFO 1392 --- [restartedMain] com.tp.todolist.TodolistApplication      : Started TodolistApplication in 3.721 seconds (process running for 4.04)
+2026-05-09T20:58:18.086-04:00  INFO 1392 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09T20:58:18.093-04:00  INFO 1392 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-09T20:58:18.097-04:00  INFO 1392 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T20:58:18.100-04:00  INFO 1392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-09T20:58:18.107-04:00  INFO 1392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

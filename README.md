@@ -505,3 +505,288 @@ Nguyen Hoang Thanh PHAN
 
 **Last Updated:** May 2026
 **Version:** 1.0.0
+
+## 🐳 Docker Setup (Containerization)
+
+This project is fully containerized with Docker. You can run the entire application (Backend, Frontend, and Database) using containers or Docker Compose.
+
+### Quick Start — Run just one component
+
+- +Backend only (build & run):
+- +`powershell
++cd Backend
++docker build -t todolist-backend:1.0 .
++# Use the root .env (one level up) so the container receives database creds
++docker run --env-file ../.env -p 8080:8080 todolist-backend:1.0
++`
+- +Frontend only (build & run):
+- +`powershell
++cd Frontend
++docker build -t todolist-frontend:1.0 .
++docker run -p 1010:1010 todolist-frontend:1.0
++`
+- +Full stack (root): use Docker Compose to run Backend + Frontend + MySQL together
+- +`powershell
++cd "$(git rev-parse --show-toplevel 2>$null || pwd)" # or the project root
++docker compose up --build
++`
+- +To stop and remove containers, networks and volumes:
+- +`powershell
++docker compose down -v
++`
+- +### Docker Prerequisites
+
+* **Docker Desktop** installed and running ([Download here](https://www.docker.com/products/docker-desktop))
+* **Docker Compose** (included with Docker Desktop)
+* Windows: Ensure WSL 2 backend is enabled
+* Port availability: `8080` (Backend), `1010` (Frontend), `3306` (MySQL)
+
+### Option 1: Build and Run Individual Containers
+
+#### Backend Container
+
+1. **Navigate to Backend directory:**
+
+   ```bash
+   cd Backend
+   ```
+
+2. **Build the Backend image:**
+
+   ```bash
+   docker build -t todolist-backend:1.0 .
+   ```
+
+3. **Run the Backend container (with local .env):**
+
+   ```bash
+   docker run --env-file .env -p 8080:8080 todolist-backend:1.0
+   ```
+
+   **If your MySQL is on the Windows host, use:**
+
+   ```bash
+   docker run --env-file .env -e SPRING_DATASOURCE_URL="jdbc:mysql://host.docker.internal:3306/to_do_list_db" -p 8080:8080 todolist-backend:1.0
+   ```
+
+   **Backend will be available at:** `http://localhost:8080`
+
+#### Frontend Container
+
+1. **Navigate to Frontend directory:**
+
+   ```bash
+   cd Frontend
+   ```
+
+2. **Build the Frontend image:**
+
+   ```bash
+   docker build -t todolist-frontend:1.0 .
+   ```
+
+3. **Run the Frontend container:**
+
+   ```bash
+   docker run -p 1010:1010 todolist-frontend:1.0
+   ```
+
+   **Frontend will be available at:** `http://localhost:1010`
+
+### Option 2: Use Docker Compose (Recommended)
+
+Docker Compose runs Backend, Frontend, and MySQL together with one command.
+
+1. **Create `docker-compose.yml` in project root:**
+
+   ```yaml
+   version: "3.8"
+
+   services:
+     mysql:
+       image: mysql:8.0
+       container_name: todolist-mysql
+       environment:
+         MYSQL_ROOT_PASSWORD: rootpass123
+         MYSQL_DATABASE: to_do_list_db
+         MYSQL_USER: pro
+         MYSQL_PASSWORD: helloworld123
+       ports:
+         - "3306:3306"
+       volumes:
+         - mysql-data:/var/lib/mysql
+         - ./Backend/db/db.sql:/docker-entrypoint-initdb.d/init.sql
+       healthcheck:
+         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+         timeout: 20s
+         retries: 10
+
+     backend:
+       build: ./Backend
+       container_name: todolist-backend
+       ports:
+         - "8080:8080"
+       environment:
+         SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/to_do_list_db
+         SPRING_DATASOURCE_USERNAME: pro
+         SPRING_DATASOURCE_PASSWORD: helloworld123
+         APP_JWT_SECRET: GENERATE_A_RANDOM_SECRET
+         CORS_ALLOWED_ORIGINS: http://localhost:1010, http://127.0.0.1:1010
+       depends_on:
+         mysql:
+           condition: service_healthy
+       restart: unless-stopped
+
+     frontend:
+       build: ./Frontend
+       container_name: todolist-frontend
+       ports:
+         - "1010:1010"
+       depends_on:
+         - backend
+       restart: unless-stopped
+
+   volumes:
+     mysql-data:
+   ```
+
+2. **Start all services:**
+
+   ```bash
+   docker-compose up
+   ```
+
+   This will start MySQL, Backend, and Frontend in order.
+
+3. **Access the application:**
+   - **Frontend:** `http://localhost:1010`
+   - **Backend API:** `http://localhost:8080`
+   - **Database:** `localhost:3306` (MySQL)
+
+4. **Stop all services:**
+
+   ```bash
+   docker-compose down
+   ```
+
+5. **View logs (optional):**
+
+   ```bash
+   docker-compose logs -f backend
+   docker-compose logs -f frontend
+   docker-compose logs -f mysql
+   ```
+
+### Docker Image Details
+
+#### Backend Dockerfile (Multi-Stage Build)
+
+The Backend uses an optimized multi-stage build:
+
+- **Stage 1 (Builder):** Uses JDK 21 to compile the Spring Boot application
+- **Stage 2 (Runtime):** Uses smaller JRE 21 image for final container
+- **Result:** ~50% smaller image size compared to single-stage builds
+
+#### Frontend Dockerfile
+
+- **Base:** Nginx Alpine (lightweight)
+- **Port:** 1010 (configured in nginx.conf)
+- **Content:** HTML, CSS, and JavaScript files served statically
+
+### Docker Environment Variables
+
+**Backend Environment Variables (in docker-compose.yml):**
+
+| Variable                     | Default                                 | Purpose                 |
+| ---------------------------- | --------------------------------------- | ----------------------- |
+| `SPRING_DATASOURCE_URL`      | `jdbc:mysql://mysql:3306/to_do_list_db` | MySQL connection string |
+| `SPRING_DATASOURCE_USERNAME` | `pro`                                   | Database user           |
+| `SPRING_DATASOURCE_PASSWORD` | `helloworld123`                         | Database password       |
+| `APP_JWT_SECRET`             | `GENERATE_A_RANDOM_SECRET`              | JWT signing key         |
+| `CORS_ALLOWED_ORIGINS`       | `http://localhost:1010`                 | Allowed frontend URLs   |
+
+### Docker Useful Commands
+
+```bash
+# List running containers
+docker ps
+
+# List all containers (including stopped)
+docker ps -a
+
+# View logs of a container
+docker logs container-name
+
+# Follow logs in real-time
+docker logs -f container-name
+
+# Stop a container
+docker stop container-name
+
+# Remove a container
+docker rm container-name
+
+# Remove an image
+docker rmi image-name:tag
+
+# Enter a container shell
+docker exec -it container-name bash
+
+# Check container resource usage
+docker stats
+
+# Build image without cache
+docker build --no-cache -t todolist-backend:1.0 .
+```
+
+### Docker Troubleshooting
+
+**Container won't start - "Address already in use"**
+
+- Check if ports are already in use: `netstat -ano | findstr :8080` (Windows)
+- Stop the container: `docker stop container-name`
+- Or use different ports in `docker-compose.yml`
+
+**Database connection errors**
+
+- Ensure MySQL container is running first (check with `docker ps`)
+- Verify environment variables match in `docker-compose.yml`
+- Check logs: `docker logs todolist-mysql`
+
+**Frontend can't reach Backend**
+
+- Verify Backend is running: `docker ps`
+- Check Backend URL in Frontend environment: should be `http://localhost:8080` (not `host.docker.internal`)
+- Ensure CORS is configured correctly in Backend
+
+**Images not rebuilding after code changes**
+
+- Rebuild without cache: `docker build --no-cache -t todolist-backend:1.0 .`
+- Or use: `docker-compose up --build`
+
+**Out of disk space**
+
+- Clean up unused images/containers: `docker system prune`
+- Clean up everything (WARNING): `docker system prune -a`
+
+### Production Deployment with Docker
+
+For deploying to production:
+
+1. **Use environment-specific docker-compose files:**
+   - `docker-compose.dev.yml` for development
+   - `docker-compose.prod.yml` for production
+
+2. **Use Docker Registry:**
+   - Push images to Docker Hub or Azure Container Registry
+   - Pull in production environment
+
+3. **Use Kubernetes (optional):**
+   - Deploy to Azure Kubernetes Service (AKS)
+   - Use Helm charts for configuration management
+
+4. **Set secure environment variables:**
+   - Use `.env.prod` file (never committed to git)
+   - Or use secrets management (Azure Key Vault, AWS Secrets Manager)
+
+## 🔧 Configuration

@@ -1,13 +1,16 @@
-FROM eclipse-temurin:21-jdk
-
+# Stage 1: Build
+FROM eclipse-temurin:21-jdk as builder
 WORKDIR /app
-
-COPY . .
-
+COPY pom.xml .
+COPY mvnw .
+COPY .mvn .mvn
+COPY src src
 RUN chmod +x mvnw
-
 RUN ./mvnw clean package -DskipTests
 
+# Stage 2: Runtime (smaller image)
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-
-CMD java -jar target/*.jar
+CMD ["java", "-jar", "app.jar"]
